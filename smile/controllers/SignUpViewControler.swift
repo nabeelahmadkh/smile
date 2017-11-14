@@ -33,7 +33,7 @@ class LeftPaddedTextField2: UITextField {
 
 class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
-    // Declaring variables for the SignUp View Controller
+    // Declaring variables for the SignUp View Controler
     @IBOutlet weak var signUpTextLabel: UILabel!
     @IBOutlet weak var usernameTextField: LeftPaddedTextField2!
     @IBOutlet weak var passwordTextField: LeftPaddedTextField2!

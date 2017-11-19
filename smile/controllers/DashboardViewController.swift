@@ -162,7 +162,14 @@ class DashboardViewController: UIViewController {
             DispatchQueue.main.async(){
                 self.performSegue(withIdentifier: "dashToMusic", sender: self)
             }
-        } else if(sender.title(for: UIControlState.selected)! == "TreasuredMoments"){
+        }else if(sender.title(for: UIControlState.selected)! == "Meme"){
+            print("Perform segue called")
+            DispatchQueue.main.async(){
+                self.performSegue(withIdentifier: "dashToMemes", sender: self)
+            }
+        }
+        
+        else if(sender.title(for: UIControlState.selected)! == "TreasuredMoments"){
             print("Perform segue called")
             DispatchQueue.main.async(){
                 self.performSegue(withIdentifier: "dashToGallery", sender: self)

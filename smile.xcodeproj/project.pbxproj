@@ -16,11 +16,13 @@
 		5D46E6141F9FED2D00CC3613 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D46E6131F9FED2D00CC3613 /* ViewController.swift */; };
 		5D46E6171F9FED2D00CC3613 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D46E6151F9FED2D00CC3613 /* Main.storyboard */; };
 		5D46E61C1F9FED2D00CC3613 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D46E61A1F9FED2D00CC3613 /* LaunchScreen.storyboard */; };
+		5D4C7E121FC046AA00F38AD1 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4C7E111FC046A900F38AD1 /* PostTableViewCell.swift */; };
 		5D6C1D001FB7F091003568B7 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C1CFF1FB7F091003568B7 /* GalleryViewController.swift */; };
 		5D8F8A921FB90177002EB7B7 /* AddNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F8A911FB90177002EB7B7 /* AddNumberViewController.swift */; };
 		5D8F8A941FB91A85002EB7B7 /* ComponentFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F8A931FB91A85002EB7B7 /* ComponentFormatter.swift */; };
 		5DA5024B1FBAE090003BB4DF /* ImagePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5024A1FBAE08F003BB4DF /* ImagePreviewVC.swift */; };
 		5DA863D91FAD48CC005B09B8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DA863D81FAD48CC005B09B8 /* Images.xcassets */; };
+		5DB1801D1FC0F76900B9FA4D /* MemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1801C1FC0F76900B9FA4D /* MemeViewController.swift */; };
 		5DCBD3D31FB4F718000F08C1 /* UserProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCBD3D21FB4F718000F08C1 /* UserProfileTableViewController.swift */; };
 		5DCC094C1FBAA4AD0069EE2C /* GradientSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC094B1FBAA4AD0069EE2C /* GradientSelector.swift */; };
 		5DCC094E1FBAA4B60069EE2C /* MiscHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC094D1FBAA4B60069EE2C /* MiscHelper.swift */; };
@@ -44,11 +46,13 @@
 		5D46E6161F9FED2D00CC3613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D46E61B1F9FED2D00CC3613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D46E61D1F9FED2D00CC3613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D4C7E111FC046A900F38AD1 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostTableViewCell.swift; path = "/Users/nabeel/Documents/Developer/iOSdevelopement/smile-ver2.0/smile-ver2.1/smile/PostTableViewCell.swift"; sourceTree = "<absolute>"; };
 		5D6C1CFF1FB7F091003568B7 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		5D8F8A911FB90177002EB7B7 /* AddNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNumberViewController.swift; sourceTree = "<group>"; };
 		5D8F8A931FB91A85002EB7B7 /* ComponentFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentFormatter.swift; sourceTree = "<group>"; };
 		5DA5024A1FBAE08F003BB4DF /* ImagePreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImagePreviewVC.swift; path = "/Users/nabeel/Documents/Developer/iOSdevelopement/smile-ver2.0/smile-ver2.1/smile/controllers/ImagePreviewVC.swift"; sourceTree = "<absolute>"; };
 		5DA863D81FAD48CC005B09B8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5DB1801C1FC0F76900B9FA4D /* MemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeViewController.swift; sourceTree = "<group>"; };
 		5DCBD3D21FB4F718000F08C1 /* UserProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewController.swift; sourceTree = "<group>"; };
 		5DCC094B1FBAA4AD0069EE2C /* GradientSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientSelector.swift; sourceTree = "<group>"; };
 		5DCC094D1FBAA4B60069EE2C /* MiscHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscHelper.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 				5DCC094F1FBAC6940069EE2C /* helpers */,
 				5DCC09441FBAA4400069EE2C /* controllers */,
 				5D46E61A1F9FED2D00CC3613 /* LaunchScreen.storyboard */,
+				5D4C7E111FC046A900F38AD1 /* PostTableViewCell.swift */,
 				5D46E6151F9FED2D00CC3613 /* Main.storyboard */,
 				5DEEAD7C1FBA8A2000AAFE1E /* GoogleService-Info.plist */,
 				5D46E61D1F9FED2D00CC3613 /* Info.plist */,
@@ -122,9 +127,9 @@
 		5DCC09441FBAA4400069EE2C /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5DB1801C1FC0F76900B9FA4D /* MemeViewController.swift */,
 				5DCC09501FBAC7790069EE2C /* DashboardViewController.swift */,
 				5DCC09521FBAC85D0069EE2C /* MusicViewController.swift */,
-				5DA5024A1FBAE08F003BB4DF /* ImagePreviewVC.swift */,
 				5DCC09541FBAC8840069EE2C /* VideoViewController.swift */,
 				5DCC09561FBAC8A20069EE2C /* TextViewController.swift */,
 				5D46E6131F9FED2D00CC3613 /* ViewController.swift */,
@@ -133,6 +138,7 @@
 				5D8F8A911FB90177002EB7B7 /* AddNumberViewController.swift */,
 				5DCBD3D21FB4F718000F08C1 /* UserProfileTableViewController.swift */,
 				5D6C1CFF1FB7F091003568B7 /* GalleryViewController.swift */,
+				5DA5024A1FBAE08F003BB4DF /* ImagePreviewVC.swift */,
 				5DEC92FD1FB25A7200F694A8 /* EditUserProfile.swift */,
 			);
 			path = controllers;
@@ -304,6 +310,7 @@
 			files = (
 				5D2B95601FAD6ACB003ECE08 /* UploadImagesViewController.swift in Sources */,
 				5D8F8A921FB90177002EB7B7 /* AddNumberViewController.swift in Sources */,
+				5D4C7E121FC046AA00F38AD1 /* PostTableViewCell.swift in Sources */,
 				5D46E6141F9FED2D00CC3613 /* ViewController.swift in Sources */,
 				5DCC09531FBAC85D0069EE2C /* MusicViewController.swift in Sources */,
 				5DCC09571FBAC8A20069EE2C /* TextViewController.swift in Sources */,
@@ -318,6 +325,7 @@
 				5DA5024B1FBAE090003BB4DF /* ImagePreviewVC.swift in Sources */,
 				5DEC92FE1FB25A7200F694A8 /* EditUserProfile.swift in Sources */,
 				5DCC094C1FBAA4AD0069EE2C /* GradientSelector.swift in Sources */,
+				5DB1801D1FC0F76900B9FA4D /* MemeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

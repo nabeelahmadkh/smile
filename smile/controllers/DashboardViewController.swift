@@ -17,7 +17,7 @@ class DashboardViewController: UIViewController {
     
     var ref: DatabaseReference!
     
-    var dashboardOptionsList:[String] = ["Meme","Video","Music","TreasuredMoments","Game","Text","Food","Shop","Helpline","Account"]
+    var dashboardOptionsList:[String] = ["Meme","Video","Music","TreasuredMoments","Helpline","Game","Text","Food","Shop","Account"]
     
     override func viewDidLoad() {
         
@@ -166,6 +166,11 @@ class DashboardViewController: UIViewController {
             print("Perform segue called")
             DispatchQueue.main.async(){
                 self.performSegue(withIdentifier: "dashToMemes", sender: self)
+            }
+        }else if(sender.title(for: UIControlState.selected)! == "Helpline"){
+            print("Perform segue called")
+            DispatchQueue.main.async(){
+                self.performSegue(withIdentifier: "dashToPhone", sender: self)
             }
         }
         

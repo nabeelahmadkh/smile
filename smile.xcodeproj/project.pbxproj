@@ -18,6 +18,7 @@
 		5D46E61C1F9FED2D00CC3613 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D46E61A1F9FED2D00CC3613 /* LaunchScreen.storyboard */; };
 		5D4C7E121FC046AA00F38AD1 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4C7E111FC046A900F38AD1 /* PostTableViewCell.swift */; };
 		5D6C1D001FB7F091003568B7 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C1CFF1FB7F091003568B7 /* GalleryViewController.swift */; };
+		5D7040281FC2CE86008D0DFB /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7040271FC2CE86008D0DFB /* PhoneViewController.swift */; };
 		5D8F8A921FB90177002EB7B7 /* AddNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F8A911FB90177002EB7B7 /* AddNumberViewController.swift */; };
 		5D8F8A941FB91A85002EB7B7 /* ComponentFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F8A931FB91A85002EB7B7 /* ComponentFormatter.swift */; };
 		5DA5024B1FBAE090003BB4DF /* ImagePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5024A1FBAE08F003BB4DF /* ImagePreviewVC.swift */; };
@@ -48,6 +49,7 @@
 		5D46E61D1F9FED2D00CC3613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D4C7E111FC046A900F38AD1 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostTableViewCell.swift; path = "/Users/nabeel/Documents/Developer/iOSdevelopement/smile-ver2.0/smile-ver2.1/smile/PostTableViewCell.swift"; sourceTree = "<absolute>"; };
 		5D6C1CFF1FB7F091003568B7 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		5D7040271FC2CE86008D0DFB /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhoneViewController.swift; path = controllers/PhoneViewController.swift; sourceTree = "<group>"; };
 		5D8F8A911FB90177002EB7B7 /* AddNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNumberViewController.swift; sourceTree = "<group>"; };
 		5D8F8A931FB91A85002EB7B7 /* ComponentFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentFormatter.swift; sourceTree = "<group>"; };
 		5DA5024A1FBAE08F003BB4DF /* ImagePreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImagePreviewVC.swift; path = "/Users/nabeel/Documents/Developer/iOSdevelopement/smile-ver2.0/smile-ver2.1/smile/controllers/ImagePreviewVC.swift"; sourceTree = "<absolute>"; };
@@ -117,6 +119,7 @@
 				5D46E61A1F9FED2D00CC3613 /* LaunchScreen.storyboard */,
 				5D4C7E111FC046A900F38AD1 /* PostTableViewCell.swift */,
 				5D46E6151F9FED2D00CC3613 /* Main.storyboard */,
+				5D7040271FC2CE86008D0DFB /* PhoneViewController.swift */,
 				5DEEAD7C1FBA8A2000AAFE1E /* GoogleService-Info.plist */,
 				5D46E61D1F9FED2D00CC3613 /* Info.plist */,
 				5DA863D81FAD48CC005B09B8 /* Images.xcassets */,
@@ -314,6 +317,7 @@
 				5D46E6141F9FED2D00CC3613 /* ViewController.swift in Sources */,
 				5DCC09531FBAC85D0069EE2C /* MusicViewController.swift in Sources */,
 				5DCC09571FBAC8A20069EE2C /* TextViewController.swift in Sources */,
+				5D7040281FC2CE86008D0DFB /* PhoneViewController.swift in Sources */,
 				5D6C1D001FB7F091003568B7 /* GalleryViewController.swift in Sources */,
 				5DCC094E1FBAA4B60069EE2C /* MiscHelper.swift in Sources */,
 				5DCC09551FBAC8840069EE2C /* VideoViewController.swift in Sources */,

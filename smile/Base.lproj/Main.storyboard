@@ -134,6 +134,7 @@
                         <segue destination="PZM-26-kZl" kind="show" identifier="dashToVideo" id="hPV-Zr-mVd"/>
                         <segue destination="HjH-IB-X7T" kind="show" identifier="dashToMusic" id="1gm-Vs-vc8"/>
                         <segue destination="B7K-da-kE4" kind="show" identifier="dashToMemes" id="Nz6-mu-UJ8"/>
+                        <segue destination="Bus-0g-t5g" kind="show" identifier="dashToPhone" id="uff-ck-Agj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSl-p0-695" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -837,6 +838,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o0W-I3-lZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2819" y="-752"/>
+        </scene>
+        <!--Phone View Controller-->
+        <scene sceneID="3bU-qR-5Xl">
+            <objects>
+                <viewController id="Bus-0g-t5g" customClass="PhoneViewController" customModule="smile" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="utK-9d-esW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Matter how dark days get, I will be here for you, I am Just a Phone Call away." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAU-oc-PSN">
+                                <rect key="frame" x="31" y="101" width="348" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61B-17-4wF">
+                                <rect key="frame" x="31" y="204" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Click Here to talk."/>
+                                <connections>
+                                    <action selector="callHelpline:" destination="Bus-0g-t5g" eventType="touchUpInside" id="duu-UT-Clm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97210741040000004" green="0.91310642829999999" blue="0.29795318840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="qFm-0m-n4J"/>
+                    </view>
+                    <connections>
+                        <outlet property="textLabel" destination="fAU-oc-PSN" id="LAn-2R-nDS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fta-Bp-S10" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3802.898550724638" y="-752.44565217391312"/>
         </scene>
         <!--Add Number View Controller-->
         <scene sceneID="Lfd-0m-rgd">

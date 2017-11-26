@@ -98,39 +98,45 @@ class uploadImagesViewController: UIViewController{
     
     @IBAction func uploadImages(_ sender: Any) {
         
-        
-        for i in 0..<selectedAssets{
-            print("in the selected array. \(i)")
-            if let imageData:Data = UIImagePNGRepresentation(imagesToUpload[i])!
-            {
-                let profilePictureStorageRef = self.storageRef.child("userImages/\(user!)/images/img\(i+self.numberOfImages)")
-                print("I + NUMBER OF IMAGES \(i+self.numberOfImages)")
-                
-                let uploadTask = profilePictureStorageRef.putData(imageData, metadata: nil)
-                {metadata, error in
-                    if error == nil{
-                        // Adding the URL of the images in the
-                        let downloadUrl = metadata!.downloadURL()
-                        print("the download link is \(downloadUrl)")
-                        self.ref.child("users").child(self.user!).child("images").child("\(i+self.numberOfImages)").setValue(downloadUrl!.absoluteString)
-                        print("The file was uploaded successsfully.")
-                        
-                        
-                        let alert = UIAlertController(title: "Images Upload", message: "Your Images are successfully uploaded", preferredStyle: .alert)
-                        let okaction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                        alert.addAction(okaction)
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                    else{
-                        print(error?.localizedDescription)
-                        let alert = UIAlertController(title: "Images Upload", message: "\(error?.localizedDescription)", preferredStyle: .alert)
-                        let okaction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                        alert.addAction(okaction)
-                        self.present(alert, animated: true, completion: nil)
-                        
+        if(selectedAssets > 0){
+            for i in 0..<selectedAssets{
+                print("in the selected array. \(i)")
+                if let imageData:Data = UIImagePNGRepresentation(imagesToUpload[i])!
+                {
+                    let profilePictureStorageRef = self.storageRef.child("userImages/\(user!)/images/img\(i+self.numberOfImages)")
+                    print("I + NUMBER OF IMAGES \(i+self.numberOfImages)")
+                    
+                    let uploadTask = profilePictureStorageRef.putData(imageData, metadata: nil)
+                    {metadata, error in
+                        if error == nil{
+                            // Adding the URL of the images in the
+                            let downloadUrl = metadata!.downloadURL()
+                            print("the download link is \(downloadUrl)")
+                            self.ref.child("users").child(self.user!).child("images").child("\(i+self.numberOfImages)").setValue(downloadUrl!.absoluteString)
+                            print("The file was uploaded successsfully.")
+                            
+                            
+                            let alert = UIAlertController(title: "Images Upload", message: "Your Images are successfully uploaded", preferredStyle: .alert)
+                            let okaction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                            alert.addAction(okaction)
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        else{
+                            print(error?.localizedDescription)
+                            let alert = UIAlertController(title: "Images Upload", message: "\(error?.localizedDescription)", preferredStyle: .alert)
+                            let okaction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                            alert.addAction(okaction)
+                            self.present(alert, animated: true, completion: nil)
+                            
+                        }
                     }
                 }
             }
+        }else{
+            let alert = UIAlertController(title: "No Image Selected", message: "Select the image first, then click on upload", preferredStyle: .alert)
+            let okaction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okaction)
+            self.present(alert, animated:true, completion: nil)
         }
     }
     

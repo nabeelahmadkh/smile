@@ -22,6 +22,7 @@ class MemeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.postsTableView.delegate = self
         self.postsTableView.dataSource = self
         
+        
         self.title = "Memes"
         //self.navigationController?.navigationBar.titleTextAttributes = UIFont(name: "ChalkboardSE-Bold", size: 25)!
         
@@ -96,6 +97,15 @@ class MemeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let data = try? Data(contentsOf: url!)
         let image = UIImage(data: data!)
         cell.cellImage.image = image
+        
+        // For changing the dimensions of the UIImageView 414*266
+        let ratio = (image!.size.width) / (image!.size.height)
+        if image!.size.height > 266 {
+            let newHeight = image!.size.height / ratio
+            let newWidth = image!.size.width / ratio
+            //var resizedImage = UIImage(data: image)
+        }
+        
         
         cell.cellLabel.alpha = 0
         cell.cellDescription.alpha = 0

@@ -117,14 +117,14 @@ class uploadImagesViewController: UIViewController{
                             
                             
                             let alert = UIAlertController(title: "Images Upload", message: "Your Images are successfully uploaded", preferredStyle: .alert)
-                            let okaction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                            let okaction = UIAlertAction(title: "OK", style: .default, handler: self.popCurrentViewController)
                             alert.addAction(okaction)
                             self.present(alert, animated: true, completion: nil)
                         }
                         else{
                             print(error?.localizedDescription)
                             let alert = UIAlertController(title: "Images Upload", message: "\(error?.localizedDescription)", preferredStyle: .alert)
-                            let okaction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                            let okaction = UIAlertAction(title: "OK", style: .default, handler: self.popCurrentViewController)
                             alert.addAction(okaction)
                             self.present(alert, animated: true, completion: nil)
                             
@@ -140,7 +140,9 @@ class uploadImagesViewController: UIViewController{
         }
     }
     
-    
+    func popCurrentViewController(alert : UIAlertAction!){
+        self.navigationController?.popViewController(animated: true)
+    }
     
     
     override func didReceiveMemoryWarning() {

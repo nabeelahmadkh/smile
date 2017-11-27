@@ -22,7 +22,7 @@ class VideoViewController: UIViewController {
     override func viewDidLoad() {
         //let fb = FirebaseHelpers()
         //fb.fbSelect(tableName: "videos", selectColumnNames: ["v_url"], columnNames: [], parameters: [], isAnd: false)
-        
+        self.title = "Funny Videos"
         ref = Database.database().reference()
         let tableRef = ref.child("videos")
         

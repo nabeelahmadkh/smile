@@ -271,9 +271,11 @@ class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UIN
                                     print ("Error signing out: %@", signOutError)
                                 }
                                 DispatchQueue.main.async(){
-                                    self.performSegue(withIdentifier: "signupToLogin", sender: self)
+                                    let alert = UIAlertController(title: "Success", message: "Your SignUp is Successfully complete. Click OK to goto Login Page", preferredStyle: .alert)
+                                    let okaction = UIAlertAction(title: "OK", style: .default, handler: self.goToLogin)
+                                    alert.addAction(okaction)
+                                    self.present(alert, animated: true, completion: nil)
                                 }
-                                
                             }
                             else{
                                 print(error?.localizedDescription)
@@ -307,7 +309,9 @@ class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
-    
+    func goToLogin(alert: UIAlertAction!){
+        self.performSegue(withIdentifier: "signupToLogin", sender: self)
+    }
     
     // when profile picture is tapped
     @IBAction func uploadProfilePicture(_ sender: UITapGestureRecognizer) {

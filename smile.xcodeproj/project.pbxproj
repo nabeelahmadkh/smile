@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		543B81277A2E91C78E22AEB2 /* Pods_smile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F21430B58C0511815B25E0 /* Pods_smile.framework */; };
+		5D0BB7CE1FCB7C3D00565850 /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0BB7CD1FCB7C3D00565850 /* EditContactViewController.swift */; };
+		5D237D5C1FCBA173005B12F2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5D237D561FCBA171005B12F2 /* GameScene.sks */; };
+		5D237D5D1FCBA173005B12F2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D237D571FCBA171005B12F2 /* GameScene.swift */; };
+		5D237D5E1FCBA173005B12F2 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5D237D581FCBA172005B12F2 /* Actions.sks */; };
+		5D237D5F1FCBA173005B12F2 /* fireworks.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5D237D591FCBA172005B12F2 /* fireworks.sks */; };
+		5D237D601FCBA173005B12F2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D237D5A1FCBA172005B12F2 /* GameViewController.swift */; };
+		5D237D611FCBA173005B12F2 /* pulse.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5D237D5B1FCBA173005B12F2 /* pulse.sks */; };
 		5D2B955B1FAD685E003ECE08 /* BSImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2B955C1FAD685E003ECE08 /* BSImagePicker.framework */; };
 		5D2B955D1FAD686B003ECE08 /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2B955E1FAD686B003ECE08 /* DLRadioButton.framework */; };
 		5D2B95601FAD6ACB003ECE08 /* UploadImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B955F1FAD6ACB003ECE08 /* UploadImagesViewController.swift */; };
@@ -37,6 +44,13 @@
 
 /* Begin PBXFileReference section */
 		21F21430B58C0511815B25E0 /* Pods_smile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D0BB7CD1FCB7C3D00565850 /* EditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
+		5D237D561FCBA171005B12F2 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		5D237D571FCBA171005B12F2 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		5D237D581FCBA172005B12F2 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		5D237D591FCBA172005B12F2 /* fireworks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fireworks.sks; sourceTree = "<group>"; };
+		5D237D5A1FCBA172005B12F2 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		5D237D5B1FCBA173005B12F2 /* pulse.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = pulse.sks; sourceTree = "<group>"; };
 		5D2B955C1FAD685E003ECE08 /* BSImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BSImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2B955E1FAD686B003ECE08 /* DLRadioButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DLRadioButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2B955F1FAD6ACB003ECE08 /* UploadImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImagesViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +133,12 @@
 				5D46E61A1F9FED2D00CC3613 /* LaunchScreen.storyboard */,
 				5D4C7E111FC046A900F38AD1 /* PostTableViewCell.swift */,
 				5D46E6151F9FED2D00CC3613 /* Main.storyboard */,
+				5D237D581FCBA172005B12F2 /* Actions.sks */,
+				5D237D591FCBA172005B12F2 /* fireworks.sks */,
+				5D237D561FCBA171005B12F2 /* GameScene.sks */,
+				5D237D571FCBA171005B12F2 /* GameScene.swift */,
+				5D237D5A1FCBA172005B12F2 /* GameViewController.swift */,
+				5D237D5B1FCBA173005B12F2 /* pulse.sks */,
 				5D7040271FC2CE86008D0DFB /* PhoneViewController.swift */,
 				5DEEAD7C1FBA8A2000AAFE1E /* GoogleService-Info.plist */,
 				5D46E61D1F9FED2D00CC3613 /* Info.plist */,
@@ -130,8 +150,8 @@
 		5DCC09441FBAA4400069EE2C /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5DB1801C1FC0F76900B9FA4D /* MemeViewController.swift */,
 				5DCC09501FBAC7790069EE2C /* DashboardViewController.swift */,
+				5DB1801C1FC0F76900B9FA4D /* MemeViewController.swift */,
 				5DCC09521FBAC85D0069EE2C /* MusicViewController.swift */,
 				5DCC09541FBAC8840069EE2C /* VideoViewController.swift */,
 				5DCC09561FBAC8A20069EE2C /* TextViewController.swift */,
@@ -143,6 +163,7 @@
 				5D6C1CFF1FB7F091003568B7 /* GalleryViewController.swift */,
 				5DA5024A1FBAE08F003BB4DF /* ImagePreviewVC.swift */,
 				5DEC92FD1FB25A7200F694A8 /* EditUserProfile.swift */,
+				5D0BB7CD1FCB7C3D00565850 /* EditContactViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -230,7 +251,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D46E61C1F9FED2D00CC3613 /* LaunchScreen.storyboard in Resources */,
+				5D237D611FCBA173005B12F2 /* pulse.sks in Resources */,
+				5D237D5E1FCBA173005B12F2 /* Actions.sks in Resources */,
+				5D237D5C1FCBA173005B12F2 /* GameScene.sks in Resources */,
 				5DEEAD7D1FBA8A2000AAFE1E /* GoogleService-Info.plist in Resources */,
+				5D237D5F1FCBA173005B12F2 /* fireworks.sks in Resources */,
 				5DA863D91FAD48CC005B09B8 /* Images.xcassets in Resources */,
 				5D46E6171F9FED2D00CC3613 /* Main.storyboard in Resources */,
 			);
@@ -323,12 +348,15 @@
 				5DCC09551FBAC8840069EE2C /* VideoViewController.swift in Sources */,
 				5DCC09511FBAC7790069EE2C /* DashboardViewController.swift in Sources */,
 				5D3BECD01FAD3C75003DAE9C /* SignUpViewControler.swift in Sources */,
+				5D237D5D1FCBA173005B12F2 /* GameScene.swift in Sources */,
 				5D46E6121F9FED2D00CC3613 /* AppDelegate.swift in Sources */,
 				5DCBD3D31FB4F718000F08C1 /* UserProfileTableViewController.swift in Sources */,
 				5D8F8A941FB91A85002EB7B7 /* ComponentFormatter.swift in Sources */,
+				5D0BB7CE1FCB7C3D00565850 /* EditContactViewController.swift in Sources */,
 				5DA5024B1FBAE090003BB4DF /* ImagePreviewVC.swift in Sources */,
 				5DEC92FE1FB25A7200F694A8 /* EditUserProfile.swift in Sources */,
 				5DCC094C1FBAA4AD0069EE2C /* GradientSelector.swift in Sources */,
+				5D237D601FCBA173005B12F2 /* GameViewController.swift in Sources */,
 				5DB1801D1FC0F76900B9FA4D /* MemeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

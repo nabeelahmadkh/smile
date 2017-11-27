@@ -17,7 +17,7 @@ class DashboardViewController: UIViewController {
     
     var ref: DatabaseReference!
     
-    var dashboardOptionsList:[String] = ["Meme","Video","Music","TreasuredMoments","Helpline","Game","Text","Food","Shop","Account"]
+    var dashboardOptionsList:[String] = ["Meme","Video","Music","TreasuredMoments","Game","Text","Food","Shop","Helpline","Account"]
     
     override func viewDidLoad() {
         
@@ -173,11 +173,24 @@ class DashboardViewController: UIViewController {
                 self.performSegue(withIdentifier: "dashToPhone", sender: self)
             }
         }
-        
+        else if(sender.title(for: UIControlState.selected)! == "Game"){
+            print("Perform segue called")
+            DispatchQueue.main.async(){
+                //self.performSegue(withIdentifier: "dashToGame", sender: self)
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = mainStoryboard.instantiateViewController(withIdentifier: "gameViewController")
+                self.present(controller, animated: false, completion: nil)
+            }
+        }
         else if(sender.title(for: UIControlState.selected)! == "TreasuredMoments"){
             print("Perform segue called")
             DispatchQueue.main.async(){
                 self.performSegue(withIdentifier: "dashToGallery", sender: self)
+            }
+        }  else if(sender.title(for: UIControlState.selected)! == "Text"){
+            print("Perform segue called")
+            DispatchQueue.main.async(){
+                self.performSegue(withIdentifier: "dashToText", sender: self)
             }
         }
         else {

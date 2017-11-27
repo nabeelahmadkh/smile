@@ -17,7 +17,7 @@ class DashboardViewController: UIViewController {
     
     var ref: DatabaseReference!
     
-    var dashboardOptionsList:[String] = ["Meme","Video","Music","TreasuredMoments","Game","Text","Food","Shop","Helpline","Account"]
+    var dashboardOptionsList:[String] = ["Meme","Video","Music","TreasuredMoments","Game","Text","Food","Shop","Helpline","Account2"]
     
     override func viewDidLoad() {
         

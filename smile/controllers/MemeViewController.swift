@@ -15,12 +15,16 @@ class MemeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var postsTableView: UITableView!
     var posts = NSMutableArray()
+    var newHeight = CGFloat(266)
     
     override func viewDidLoad() {
         print("view did load appear")
         super.viewDidLoad()
         self.postsTableView.delegate = self
         self.postsTableView.dataSource = self
+        
+        postsTableView.rowHeight = UITableViewAutomaticDimension;
+        postsTableView.estimatedRowHeight = 420
         
         
         self.title = "Memes"
@@ -96,16 +100,24 @@ class MemeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let url = URL(string: imageURL!)
         let data = try? Data(contentsOf: url!)
         let image = UIImage(data: data!)
-        cell.cellImage.image = image
+        //cell.cellImage.image = image
         
         // For changing the dimensions of the UIImageView 414*266
-        let ratio = (image!.size.width) / (image!.size.height)
-        if image!.size.height > 266 {
-            let newHeight = image!.size.height / ratio
-            let newWidth = image!.size.width / ratio
-            //var resizedImage = UIImage(data: image)
-        }
+        let aspect = image!.size.width / image!.size.height
+        print("the width, heigth and aspect of image is \(image!.size.width) \(image!.size.height) \(aspect)")
         
+        //let constraint = NSLayoutConstraint(item: cell.cellImage, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: cell.cellImage, attribute: NSLayoutAttribute.height, multiplier: aspect, constant: 0.0)
+        //constraint.priority = UILayoutPriority(rawValue: 999)
+        
+        //let aspectConstraint = constraint
+        newHeight = postsTableView.frame.width / aspect
+        print("The new heigth is equal to \(newHeight)")
+        cell.cellImage.frame = CGRect(x: 0, y: 59, width: 414, height: newHeight)
+        cell.cellImage.image = image
+        //postsTableView.RowHeight = UITableViewAutomaticDimension
+        //postsTableView.estimatedRowHeight = 140+newHeight
+        
+        print("The new heigth of the row is \(140 + newHeight)")
         
         cell.cellLabel.alpha = 0
         cell.cellDescription.alpha = 0

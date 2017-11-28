@@ -166,16 +166,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="481.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cr3-c0-BSB">
-                                                    <rect key="frame" x="58" y="-4" width="356" height="62"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cr3-c0-BSB">
+                                                    <rect key="frame" x="58" y="-4" width="356" height="59"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="59" id="eKT-bO-bQa"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cor-cL-CQx">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cor-cL-CQx">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="266"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="414" id="Htj-st-FMB"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="description" translatesAutoresizingMaskIntoConstraints="NO" id="Kbp-x5-YpG">
                                                     <rect key="frame" x="0.0" y="389" width="414" height="68"/>
@@ -183,30 +187,46 @@
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gDV-zH-bQv">
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gDV-zH-bQv">
                                                     <rect key="frame" x="6" y="5" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="profilephoto50px" translatesAutoresizingMaskIntoConstraints="NO" id="MX0-Lk-954">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         </imageView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="MX0-Lk-954" firstAttribute="top" secondItem="gDV-zH-bQv" secondAttribute="top" id="2vk-af-vmC"/>
+                                                        <constraint firstItem="MX0-Lk-954" firstAttribute="leading" secondItem="gDV-zH-bQv" secondAttribute="leading" id="M1z-y0-3HM"/>
+                                                    </constraints>
                                                 </stackView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9NX-hU-1iO">
                                                     <rect key="frame" x="-54" y="298" width="44" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-gG-74E">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-gG-74E">
                                                     <rect key="frame" x="6" y="333" width="44" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="kSm-KJ-Dqt"/>
+                                                        <constraint firstAttribute="height" constant="44" id="z1Z-3Y-ZcZ"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comment" translatesAutoresizingMaskIntoConstraints="NO" id="6JK-bB-4sb">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="comment" translatesAutoresizingMaskIntoConstraints="NO" id="6JK-bB-4sb">
                                                     <rect key="frame" x="44" y="315" width="80" height="80"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="pUW-Ze-9bc"/>
+                                                        <constraint firstAttribute="width" constant="80" id="y7y-02-SE3"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="Kbp-x5-YpG" secondAttribute="bottom" constant="14.666666666666686" id="VeG-X3-CxU"/>
+                                                <constraint firstItem="cor-cL-CQx" firstAttribute="top" secondItem="Cr3-c0-BSB" secondAttribute="bottom" constant="1" id="5Gq-l2-Cdb"/>
+                                                <constraint firstItem="WxM-gG-74E" firstAttribute="top" secondItem="cor-cL-CQx" secondAttribute="bottom" constant="8" id="7Db-4N-mcI"/>
+                                                <constraint firstItem="Cr3-c0-BSB" firstAttribute="top" secondItem="2AG-6c-sQT" secondAttribute="top" constant="-4" id="8eq-b2-usp"/>
+                                                <constraint firstItem="Kbp-x5-YpG" firstAttribute="top" secondItem="WxM-gG-74E" secondAttribute="bottom" constant="12" id="GVk-15-3tm"/>
+                                                <constraint firstItem="Cr3-c0-BSB" firstAttribute="leading" secondItem="gDV-zH-bQv" secondAttribute="trailing" constant="2" id="ROu-DV-Wec"/>
+                                                <constraint firstItem="6JK-bB-4sb" firstAttribute="top" secondItem="cor-cL-CQx" secondAttribute="bottom" constant="-10" id="UZR-pE-eMy"/>
+                                                <constraint firstAttribute="bottom" secondItem="Kbp-x5-YpG" secondAttribute="bottom" constant="24.670000000000002" id="ZcK-4b-4tE"/>
+                                                <constraint firstItem="6JK-bB-4sb" firstAttribute="leading" secondItem="WxM-gG-74E" secondAttribute="trailing" constant="-6" id="vlO-3X-7xa"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

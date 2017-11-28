@@ -19,7 +19,7 @@ class galleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     var myCollectionView: UICollectionView!
     var imageArray=[UIImage]()
     
-    override func viewDidLoad() {
+    override func viewDidLoad() { 
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         

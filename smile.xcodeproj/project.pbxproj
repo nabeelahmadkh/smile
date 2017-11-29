@@ -23,12 +23,10 @@
 		5D46E6141F9FED2D00CC3613 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D46E6131F9FED2D00CC3613 /* ViewController.swift */; };
 		5D46E6171F9FED2D00CC3613 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D46E6151F9FED2D00CC3613 /* Main.storyboard */; };
 		5D46E61C1F9FED2D00CC3613 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D46E61A1F9FED2D00CC3613 /* LaunchScreen.storyboard */; };
-		5D4C7E121FC046AA00F38AD1 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4C7E111FC046A900F38AD1 /* PostTableViewCell.swift */; };
 		5D6C1D001FB7F091003568B7 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C1CFF1FB7F091003568B7 /* GalleryViewController.swift */; };
 		5D7040281FC2CE86008D0DFB /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7040271FC2CE86008D0DFB /* PhoneViewController.swift */; };
 		5D8F8A921FB90177002EB7B7 /* AddNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F8A911FB90177002EB7B7 /* AddNumberViewController.swift */; };
 		5D8F8A941FB91A85002EB7B7 /* ComponentFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F8A931FB91A85002EB7B7 /* ComponentFormatter.swift */; };
-		5DA5024B1FBAE090003BB4DF /* ImagePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5024A1FBAE08F003BB4DF /* ImagePreviewVC.swift */; };
 		5DA863D91FAD48CC005B09B8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DA863D81FAD48CC005B09B8 /* Images.xcassets */; };
 		5DB1801D1FC0F76900B9FA4D /* MemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1801C1FC0F76900B9FA4D /* MemeViewController.swift */; };
 		5DCBD3D31FB4F718000F08C1 /* UserProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCBD3D21FB4F718000F08C1 /* UserProfileTableViewController.swift */; };
@@ -38,6 +36,8 @@
 		5DCC09531FBAC85D0069EE2C /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC09521FBAC85D0069EE2C /* MusicViewController.swift */; };
 		5DCC09551FBAC8840069EE2C /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC09541FBAC8840069EE2C /* VideoViewController.swift */; };
 		5DCC09571FBAC8A20069EE2C /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC09561FBAC8A20069EE2C /* TextViewController.swift */; };
+		5DCF4BEF1FCDF7E300526829 /* ImagePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF4BEE1FCDF7E300526829 /* ImagePreviewVC.swift */; };
+		5DCF4BF11FCDF88400526829 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF4BF01FCDF88400526829 /* PostTableViewCell.swift */; };
 		5DEC92FE1FB25A7200F694A8 /* EditUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC92FD1FB25A7200F694A8 /* EditUserProfile.swift */; };
 		5DEEAD7D1FBA8A2000AAFE1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DEEAD7C1FBA8A2000AAFE1E /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -61,12 +61,10 @@
 		5D46E6161F9FED2D00CC3613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D46E61B1F9FED2D00CC3613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D46E61D1F9FED2D00CC3613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5D4C7E111FC046A900F38AD1 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostTableViewCell.swift; path = "/Users/nabeel/Documents/Developer/iOSdevelopement/smile-ver2.0/smile-ver2.1/smile/PostTableViewCell.swift"; sourceTree = "<absolute>"; };
 		5D6C1CFF1FB7F091003568B7 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		5D7040271FC2CE86008D0DFB /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhoneViewController.swift; path = controllers/PhoneViewController.swift; sourceTree = "<group>"; };
 		5D8F8A911FB90177002EB7B7 /* AddNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNumberViewController.swift; sourceTree = "<group>"; };
 		5D8F8A931FB91A85002EB7B7 /* ComponentFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentFormatter.swift; sourceTree = "<group>"; };
-		5DA5024A1FBAE08F003BB4DF /* ImagePreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImagePreviewVC.swift; path = "/Users/nabeel/Documents/Developer/iOSdevelopement/smile-ver2.0/smile-ver2.1/smile/controllers/ImagePreviewVC.swift"; sourceTree = "<absolute>"; };
 		5DA863D81FAD48CC005B09B8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5DB1801C1FC0F76900B9FA4D /* MemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeViewController.swift; sourceTree = "<group>"; };
 		5DCBD3D21FB4F718000F08C1 /* UserProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +74,8 @@
 		5DCC09521FBAC85D0069EE2C /* MusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
 		5DCC09541FBAC8840069EE2C /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		5DCC09561FBAC8A20069EE2C /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		5DCF4BEE1FCDF7E300526829 /* ImagePreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewVC.swift; sourceTree = "<group>"; };
+		5DCF4BF01FCDF88400526829 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		5DEC92FD1FB25A7200F694A8 /* EditUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfile.swift; sourceTree = "<group>"; };
 		5DEEAD7C1FBA8A2000AAFE1E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6127EB54E18F05572C6837B6 /* Pods-smile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smile.release.xcconfig"; path = "Pods/Target Support Files/Pods-smile/Pods-smile.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,7 +131,6 @@
 				5DCC094F1FBAC6940069EE2C /* helpers */,
 				5DCC09441FBAA4400069EE2C /* controllers */,
 				5D46E61A1F9FED2D00CC3613 /* LaunchScreen.storyboard */,
-				5D4C7E111FC046A900F38AD1 /* PostTableViewCell.swift */,
 				5D46E6151F9FED2D00CC3613 /* Main.storyboard */,
 				5D237D581FCBA172005B12F2 /* Actions.sks */,
 				5D237D591FCBA172005B12F2 /* fireworks.sks */,
@@ -161,9 +160,10 @@
 				5D8F8A911FB90177002EB7B7 /* AddNumberViewController.swift */,
 				5DCBD3D21FB4F718000F08C1 /* UserProfileTableViewController.swift */,
 				5D6C1CFF1FB7F091003568B7 /* GalleryViewController.swift */,
-				5DA5024A1FBAE08F003BB4DF /* ImagePreviewVC.swift */,
 				5DEC92FD1FB25A7200F694A8 /* EditUserProfile.swift */,
 				5D0BB7CD1FCB7C3D00565850 /* EditContactViewController.swift */,
+				5DCF4BEE1FCDF7E300526829 /* ImagePreviewVC.swift */,
+				5DCF4BF01FCDF88400526829 /* PostTableViewCell.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -338,7 +338,7 @@
 			files = (
 				5D2B95601FAD6ACB003ECE08 /* UploadImagesViewController.swift in Sources */,
 				5D8F8A921FB90177002EB7B7 /* AddNumberViewController.swift in Sources */,
-				5D4C7E121FC046AA00F38AD1 /* PostTableViewCell.swift in Sources */,
+				5DCF4BEF1FCDF7E300526829 /* ImagePreviewVC.swift in Sources */,
 				5D46E6141F9FED2D00CC3613 /* ViewController.swift in Sources */,
 				5DCC09531FBAC85D0069EE2C /* MusicViewController.swift in Sources */,
 				5DCC09571FBAC8A20069EE2C /* TextViewController.swift in Sources */,
@@ -347,13 +347,13 @@
 				5DCC094E1FBAA4B60069EE2C /* MiscHelper.swift in Sources */,
 				5DCC09551FBAC8840069EE2C /* VideoViewController.swift in Sources */,
 				5DCC09511FBAC7790069EE2C /* DashboardViewController.swift in Sources */,
+				5DCF4BF11FCDF88400526829 /* PostTableViewCell.swift in Sources */,
 				5D3BECD01FAD3C75003DAE9C /* SignUpViewControler.swift in Sources */,
 				5D237D5D1FCBA173005B12F2 /* GameScene.swift in Sources */,
 				5D46E6121F9FED2D00CC3613 /* AppDelegate.swift in Sources */,
 				5DCBD3D31FB4F718000F08C1 /* UserProfileTableViewController.swift in Sources */,
 				5D8F8A941FB91A85002EB7B7 /* ComponentFormatter.swift in Sources */,
 				5D0BB7CE1FCB7C3D00565850 /* EditContactViewController.swift in Sources */,
-				5DA5024B1FBAE090003BB4DF /* ImagePreviewVC.swift in Sources */,
 				5DEC92FE1FB25A7200F694A8 /* EditUserProfile.swift in Sources */,
 				5DCC094C1FBAA4AD0069EE2C /* GradientSelector.swift in Sources */,
 				5D237D601FCBA173005B12F2 /* GameViewController.swift in Sources */,

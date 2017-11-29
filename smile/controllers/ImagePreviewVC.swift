@@ -1,6 +1,6 @@
 //
 //  ImagePreviewVC.swift
-//  
+//
 //
 //  Created by Nabeel Ahmad Khan on 11/11/17.
 //
@@ -169,5 +169,6 @@ class ImagePreviewFullViewCell: UICollectionViewCell, UIScrollViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
 
 

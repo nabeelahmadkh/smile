@@ -17,6 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var orientationLock = UIInterfaceOrientationMask.all
     
+    //Music Player Variables
+    static var player:AVPlayer?
+    static var musicList:[String] = []
+    static var allList:[String] = []
+    static var relaxList:[String] = []
+    static var metalList:[String] = []
+    static var popList:[String] = []
+    static var selectedGenre:String = "All"
+    static var currentIndex:Int = 0
+    
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return self.orientationLock
     }
@@ -24,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // Access the shared, singleton audio session instance
-        /*
+        
         let session = AVAudioSession.sharedInstance()
         do {
             // Configure the audio session for movie playback
@@ -32,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch let error as NSError {
             print("Failed to set the audio session category and mode: \(error.localizedDescription)")
         }
-        */
+        
         // Configuring
         FirebaseApp.configure()
         return true

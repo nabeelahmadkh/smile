@@ -39,6 +39,15 @@ class galleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         grabPhotos()
     }
     
+    @IBAction func goToDashboard(_ sender: Any) {
+    
+        //let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Dashboard_Controller") as! NextViewController
+        //self.navigationController?.pushViewController(nextVC, animated: true)
+        //self.presentViewController(Dashboard_Controller, animated: true, completion: nil)
+        
+    }
+    
+    
     //MARK: CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageArray.count

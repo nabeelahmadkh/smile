@@ -39,6 +39,9 @@ class editUserProfile:UIViewController{
     var checkBox = UIImage(named: "checked")
     var uncheckBox = UIImage(named: "unchecked")
     var hobbies = [String]()
+    @IBOutlet weak var updateButton:UIButton!
+    @IBOutlet weak var sexLabel:UILabel!
+    @IBOutlet weak var hobbiesLabel:UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var dateofbirthTextField: UITextField!
@@ -126,6 +129,7 @@ class editUserProfile:UIViewController{
         }
         print("value of hobbies is \(hobbies)")
     }
+    
     
     /*
     // Selecting Multiple Images from Gallery
@@ -259,12 +263,19 @@ class editUserProfile:UIViewController{
         ref.child("users").child((user)!).child("hobby").setValue(hobby)
         ref.child("users").child((user)!).child("name").setValue(name)
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "userData") as UIViewController
-        self.present(vc, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Success", message: "Your Profile is successfully updated", preferredStyle: .alert)
+        let okaction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okaction)
+        self.present(alert, animated: true, completion: goToHomePage)
+    
         
     }
 
+    func goToHomePage(){
+        let storyboard = UIStoryboard(name: "Dashboard_Controller", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "userData") as UIViewController
+        self.present(vc, animated: true, completion: nil)
+    }
 
     
     override func didReceiveMemoryWarning() {
@@ -310,6 +321,7 @@ class editUserProfile:UIViewController{
             self.checkBox3.setImage(self.uncheckBox, for: UIControlState.normal)
             self.checkBox4.setImage(self.uncheckBox, for: UIControlState.normal)
             while(i < length){
+                print(hobby[i])
                 hobbyOutput.append(hobby[i])
                 hobbyOutput.append(", ")
                 
@@ -326,13 +338,13 @@ class editUserProfile:UIViewController{
                 }
                 
                 if hobby[i] == signUpViewControler().hobbyLabels[2]{
-                    self.checkBox2.setImage(self.checkBox, for: UIControlState.normal)
+                    self.checkBox3.setImage(self.checkBox, for: UIControlState.normal)
                     self.box2Checked = true
                     self.hobbies.append(signUpViewControler().hobbyLabels[2])
                 }
                 
                 if hobby[i] == signUpViewControler().hobbyLabels[3]{
-                    self.checkBox2.setImage(self.checkBox, for: UIControlState.normal)
+                    self.checkBox4.setImage(self.checkBox, for: UIControlState.normal)
                     self.box2Checked = true
                     self.hobbies.append(signUpViewControler().hobbyLabels[3])
                 }
@@ -366,6 +378,78 @@ class editUserProfile:UIViewController{
         }) { (error) in
             print(error.localizedDescription)
         }
+        
+        usernameTextField = ComponentFormatter().setLabel(usernameTextField, 18, UIColor.black, UIColor.darkGray, "UserName [Email]")
+        
+        //signUpTextLabel.font = UIFont(name: "ChalkboardSE-Bold", size: 24.0)
+        //signUpTextLabel.textColor = UIColor.black
+        
+        //passwordTextField.font = UIFont(name: "ChalkboardSE-Bold", size: 18.0)
+        //passwordTextField.textColor = UIColor.black
+        //passwordTextField = ComponentFormatter().setLabel(passwordTextField, 18, UIColor.black, UIColor.darkGray, "Password")
+        
+        //confirmPasswordTextField.font = UIFont(name: "ChalkboardSE-Bold", size: 18.0)
+        //confirmPasswordTextField.textColor = UIColor.black
+        //confirmPasswordTextField = ComponentFormatter().setLabel(confirmPasswordTextField, 18, UIColor.black, UIColor.darkGray, "Confirm Password")
+        
+        sexLabel.font = UIFont(name: "ChalkboardSE-Bold", size: 18.0)
+        sexLabel.textColor = UIColor.black
+        
+        mobileTextField.font = UIFont(name: "ChalkboardSE-Bold", size: 18.0)
+        mobileTextField.textColor = UIColor.black
+        mobileTextField = ComponentFormatter().setLabel(mobileTextField, 18, UIColor.black, UIColor.darkGray, "Mobile NUmber")
+        
+        nameTextField = ComponentFormatter().setLabel(nameTextField, 18, UIColor.black, UIColor.darkGray, "Name")
+        
+        //dateOfBirthTextField.font = UIFont(name: "ChalkboardSE-Bold", size: 18.0)
+        //dateOfBirthTextField.textColor = UIColor.black
+        dateofbirthTextField = ComponentFormatter().setLabel(dateofbirthTextField, 18, UIColor.black, UIColor.darkGray, "DOB [DD/MM/YYYY]")
+        
+        
+        
+        //signUpConfirmationLabel.font = UIFont(name: "ChalkboardSE-Bold", size: 18.0)
+        //signUpConfirmationLabel.textColor = UIColor.red
+        
+        //passwordNoMatch.font = UIFont(name: "ChalkboardSE-Bold", size: 16.0)
+        //passwordNoMatch.textColor = UIColor.red
+        
+        //userNameNotValid.font = UIFont(name: "ChalkboardSE-Bold", size: 16.0)
+        //userNameNotValid.textColor = UIColor.red
+        
+        //dateInvalid.font = UIFont(name: "ChalkboardSE-Bold", size: 16.0)
+        //dateInvalid.textColor = UIColor.red
+        
+        maleRadioButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Bold", size: 16.0)
+        maleRadioButton.tintColor = UIColor.black
+        
+        femaleRadioButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Bold", size: 16.0)
+        femaleRadioButton.tintColor = UIColor.black
+        
+        //nameTextField.font = UIFont(name: "ChalkboardSE-Bold", size: 18.0)
+        //nameTextField.textColor = UIColor.white
+        
+        hobbiesLabel.font = UIFont(name: "ChalkboardSE-Bold", size: 18.0)
+        hobbiesLabel.textColor = UIColor.black
+        
+        //updateButton.font = UIFont(name: "ChalkboardSE-Bold", size: 18.0)!
+        //updateButton.currentTitleColor = UIColor.black
+        
+        hobbyLabel1 = ComponentFormatter().setLabel(hobbyLabel1, 18, UIColor.black)
+        hobbyLabel1.text = signUpViewControler().hobbyLabels[0]
+        
+        //hobbylabel2.font = UIFont(name: "ChalkboardSE-Bold", size: 18.0)
+        //hobbylabel2.textColor = UIColor.black
+        
+        hobbyLabel2 = ComponentFormatter().setLabel(hobbyLabel2, 18, UIColor.black)
+        hobbyLabel2.text = signUpViewControler().hobbyLabels[1]
+        
+        hobbyLabel3.font = UIFont(name: "ChalkboardSE-Bold", size: 18.0)
+        hobbyLabel3.textColor = UIColor.black
+        hobbyLabel3.text = signUpViewControler().hobbyLabels[2]
+        
+        hobbyLabel4.font = UIFont(name: "ChalkboardSE-Bold", size: 18.0)
+        hobbyLabel4.textColor = UIColor.black
+        hobbyLabel4.text = signUpViewControler().hobbyLabels[3]
         
     }
 }

@@ -23,6 +23,7 @@
 		5D46E6141F9FED2D00CC3613 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D46E6131F9FED2D00CC3613 /* ViewController.swift */; };
 		5D46E6171F9FED2D00CC3613 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D46E6151F9FED2D00CC3613 /* Main.storyboard */; };
 		5D46E61C1F9FED2D00CC3613 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D46E61A1F9FED2D00CC3613 /* LaunchScreen.storyboard */; };
+		5D66B5901FDA0314006C1817 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D66B58F1FDA0314006C1817 /* GoogleService-Info.plist */; };
 		5D6C1D001FB7F091003568B7 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C1CFF1FB7F091003568B7 /* GalleryViewController.swift */; };
 		5D7040281FC2CE86008D0DFB /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7040271FC2CE86008D0DFB /* PhoneViewController.swift */; };
 		5D8F8A921FB90177002EB7B7 /* AddNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F8A911FB90177002EB7B7 /* AddNumberViewController.swift */; };
@@ -39,7 +40,6 @@
 		5DCF4BEF1FCDF7E300526829 /* ImagePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF4BEE1FCDF7E300526829 /* ImagePreviewVC.swift */; };
 		5DCF4BF11FCDF88400526829 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF4BF01FCDF88400526829 /* PostTableViewCell.swift */; };
 		5DEC92FE1FB25A7200F694A8 /* EditUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC92FD1FB25A7200F694A8 /* EditUserProfile.swift */; };
-		CCE2CD231FD3825100AC7659 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCE2CD221FD3825100AC7659 /* GoogleService-Info.plist */; };
 		CCE2CD251FD3DFFA00AC7659 /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE2CD241FD3DFFA00AC7659 /* MusicPlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,8 +62,9 @@
 		5D46E6161F9FED2D00CC3613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D46E61B1F9FED2D00CC3613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D46E61D1F9FED2D00CC3613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D66B58F1FDA0314006C1817 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D6C1CFF1FB7F091003568B7 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
-		5D7040271FC2CE86008D0DFB /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhoneViewController.swift; path = controllers/PhoneViewController.swift; sourceTree = "<group>"; };
+		5D7040271FC2CE86008D0DFB /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 		5D8F8A911FB90177002EB7B7 /* AddNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNumberViewController.swift; sourceTree = "<group>"; };
 		5D8F8A931FB91A85002EB7B7 /* ComponentFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentFormatter.swift; sourceTree = "<group>"; };
 		5DA863D81FAD48CC005B09B8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		5DCF4BF01FCDF88400526829 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		5DEC92FD1FB25A7200F694A8 /* EditUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfile.swift; sourceTree = "<group>"; };
 		6127EB54E18F05572C6837B6 /* Pods-smile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smile.release.xcconfig"; path = "Pods/Target Support Files/Pods-smile/Pods-smile.release.xcconfig"; sourceTree = "<group>"; };
-		CCE2CD221FD3825100AC7659 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CCE2CD241FD3DFFA00AC7659 /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
 		D3F0DD8D80CA39B22D7540C4 /* Pods-smile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smile/Pods-smile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,27 +130,35 @@
 			isa = PBXGroup;
 			children = (
 				5D46E6111F9FED2D00CC3613 /* AppDelegate.swift */,
+				5D66B5911FDA0510006C1817 /* Game */,
 				5DCC094F1FBAC6940069EE2C /* helpers */,
 				5DCC09441FBAA4400069EE2C /* controllers */,
 				5D46E61A1F9FED2D00CC3613 /* LaunchScreen.storyboard */,
 				5D46E6151F9FED2D00CC3613 /* Main.storyboard */,
+				5D46E61D1F9FED2D00CC3613 /* Info.plist */,
+				5D66B58F1FDA0314006C1817 /* GoogleService-Info.plist */,
+				5DA863D81FAD48CC005B09B8 /* Images.xcassets */,
+			);
+			path = smile;
+			sourceTree = "<group>";
+		};
+		5D66B5911FDA0510006C1817 /* Game */ = {
+			isa = PBXGroup;
+			children = (
 				5D237D581FCBA172005B12F2 /* Actions.sks */,
 				5D237D591FCBA172005B12F2 /* fireworks.sks */,
 				5D237D561FCBA171005B12F2 /* GameScene.sks */,
 				5D237D571FCBA171005B12F2 /* GameScene.swift */,
 				5D237D5A1FCBA172005B12F2 /* GameViewController.swift */,
 				5D237D5B1FCBA173005B12F2 /* pulse.sks */,
-				5D7040271FC2CE86008D0DFB /* PhoneViewController.swift */,
-				CCE2CD221FD3825100AC7659 /* GoogleService-Info.plist */,
-				5D46E61D1F9FED2D00CC3613 /* Info.plist */,
-				5DA863D81FAD48CC005B09B8 /* Images.xcassets */,
 			);
-			path = smile;
+			path = Game;
 			sourceTree = "<group>";
 		};
 		5DCC09441FBAA4400069EE2C /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5D7040271FC2CE86008D0DFB /* PhoneViewController.swift */,
 				5DCC09501FBAC7790069EE2C /* DashboardViewController.swift */,
 				5DB1801C1FC0F76900B9FA4D /* MemeViewController.swift */,
 				5DCC09521FBAC85D0069EE2C /* MusicViewController.swift */,
@@ -254,7 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D46E61C1F9FED2D00CC3613 /* LaunchScreen.storyboard in Resources */,
-				CCE2CD231FD3825100AC7659 /* GoogleService-Info.plist in Resources */,
+				5D66B5901FDA0314006C1817 /* GoogleService-Info.plist in Resources */,
 				5D237D611FCBA173005B12F2 /* pulse.sks in Resources */,
 				5D237D5E1FCBA173005B12F2 /* Actions.sks in Resources */,
 				5D237D5C1FCBA173005B12F2 /* GameScene.sks in Resources */,
@@ -501,10 +509,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 625732G463;
+				DEVELOPMENT_TEAM = L454ZMME52;
 				INFOPLIST_FILE = smile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nbroadcast.calculator.smile2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nbroadcast.calculator.smile2.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -519,10 +527,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 625732G463;
+				DEVELOPMENT_TEAM = L454ZMME52;
 				INFOPLIST_FILE = smile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nbroadcast.calculator.smile2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nbroadcast.calculator.smile2.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -19,6 +19,8 @@ class VideoViewController: UIViewController {
     
     var videoList:[String] = []
     
+    let userDatabase:UserDefaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         //let fb = FirebaseHelpers()
         //fb.fbSelect(tableName: "videos", selectColumnNames: ["v_url"], columnNames: [], parameters: [], isAnd: false)
@@ -46,17 +48,26 @@ class VideoViewController: UIViewController {
             
             print("Final Result = \(self.videoList)")
             
+            var gender:String = ""
+            
+            if let userInfo = self.userDatabase.dictionary(forKey: "userInfo") {
+                print("UserInfo = \(userInfo)")
+                gender = (userInfo["gender"] as! String).lowercased()
+                print("Gender = \(gender)")
+            }
+            
             //print("Final Result inside viewDidLoad = \(FirebaseHelpers.finalResult)")
             //let canvas = self.view!
-            self.scrollView = GradientSelector().setGradientScrollView(view: self.scrollView,type: 0)
+            self.scrollView = GradientSelector().setGradientScrollView(view: self.scrollView,type: gender)
             let canvas = self.scrollView!
             print("Max X = \(canvas.bounds.maxX)")
-            let vidW : CGFloat = canvas.bounds.maxX * 0.45
+            //let vidW : CGFloat = canvas.bounds.maxX * 0.45
+            let vidW : CGFloat = canvas.bounds.maxX * 0.94
             let vidH : CGFloat = vidW / 16 * 10
             let vidEvenX : CGFloat = canvas.bounds.maxX * 0.03
             let vidOddX : CGFloat = canvas.bounds.maxX - vidEvenX - vidW
             print("Video Width = \(vidW) and Height = \(vidH)")
-            var vidY = canvas.bounds.maxY * 0.02
+            var vidY = canvas.bounds.maxY * 0.03
             self.scrollView.contentSize = CGSize.init(width: self.view.bounds.maxX, height: vidY + ((vidH + vidEvenX) * CGFloat((self.videoList.count +  1
                 )/2)))
             var count : Int = 0
@@ -85,14 +96,18 @@ class VideoViewController: UIViewController {
                     playButton.backgroundColor = UIColor.white
                     playButton.addTarget(self, action: #selector(self.playVideo), for: .touchDown)
                     
-                    if(count % 2 == 0) {
+                    /*if(count % 2 == 0) {
                         vidThumbnail.frame = CGRect.init(x: vidEvenX, y: vidY, width: vidW, height: vidH)
                         playButton.frame = CGRect.init(x: vidEvenX, y: vidY, width: vidW, height: vidH)
                     } else {
                         vidThumbnail.frame = CGRect.init(x: vidOddX, y: vidY, width: vidW, height: vidH)
                         playButton.frame = CGRect.init(x: vidOddX, y: vidY, width: vidW, height: vidH)
                         vidY = vidY + vidH + vidEvenX
-                    }
+                    }*/
+                    
+                    vidThumbnail.frame = CGRect.init(x: vidEvenX, y: vidY, width: vidW, height: vidH)
+                    playButton.frame = CGRect.init(x: vidEvenX, y: vidY, width: vidW, height: vidH)
+                    vidY = vidY + vidH + vidEvenX
                     
                     canvas.addSubview(vidThumbnail)
                     canvas.addSubview(playButton)
@@ -107,6 +122,17 @@ class VideoViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         AppUtility.lockOrientation(.portrait)
         print("viewDidAppear")
+        var gender:String = ""
+        
+        if let userInfo = userDatabase.dictionary(forKey: "userInfo") {
+            print("UserInfo = \(userInfo)")
+            gender = (userInfo["gender"] as! String).lowercased()
+            print("Gender = \(gender)")
+        }
+        
+        //print("Final Result inside viewDidLoad = \(FirebaseHelpers.finalResult)")
+        //let canvas = self.view!
+        self.scrollView = GradientSelector().setGradientScrollView(view: self.scrollView,type: gender)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

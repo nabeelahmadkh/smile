@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static var popList:[String] = []
     static var selectedGenre:String = "All"
     static var currentIndex:Int = 0
+    static var isProfileEdited:Bool = false
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return self.orientationLock

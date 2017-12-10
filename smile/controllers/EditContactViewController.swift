@@ -22,9 +22,19 @@ class EditTextViewController: UIViewController {
     let ref = Database.database().reference().root
     let uid = Auth.auth().currentUser?.uid
     var numberOfEmergencyContacts = 0
+    let userDatabase:UserDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
-        self.view = GradientSelector().setGradient(view: self.view,type: 0)
+        
+        var gender:String = ""
+        
+        if let userInfo = userDatabase.dictionary(forKey: "userInfo") {
+            print("UserInfo = \(userInfo)")
+            gender = (userInfo["gender"] as! String).lowercased()
+            print("Gender = \(gender)")
+        }
+        
+        self.view = GradientSelector().setGradient(view: self.view,type: gender)
         
         ref.child("users").child(uid!).child("emergency_contacts").child("contact1").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
@@ -109,5 +119,17 @@ class EditTextViewController: UIViewController {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = mainStoryboard.instantiateViewController(withIdentifier: "Dashboard_Navigation")
         self.present(controller, animated: false, completion: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        var gender:String = ""
+        
+        if let userInfo = userDatabase.dictionary(forKey: "userInfo") {
+            print("UserInfo = \(userInfo)")
+            gender = (userInfo["gender"] as! String).lowercased()
+            print("Gender = \(gender)")
+        }
+        
+        self.view = GradientSelector().setGradient(view: self.view,type: gender)
     }
 }

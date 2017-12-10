@@ -39,6 +39,12 @@ class galleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         grabPhotos()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        
+        grabPhotos()
+    }
+    
     @IBAction func goToDashboard(_ sender: Any) {
     
         //let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Dashboard_Controller") as! NextViewController

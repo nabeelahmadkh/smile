@@ -53,6 +53,7 @@ class editUserProfile:UIViewController{
     @IBOutlet weak var hobbyLabel2: UILabel!
     @IBOutlet weak var hobbyLabel3: UILabel!
     @IBOutlet weak var hobbyLabel4: UILabel!
+    let userDatabase:UserDefaults = UserDefaults.standard
     
     
     //Male Female Other Radio Button Selected
@@ -269,6 +270,11 @@ class editUserProfile:UIViewController{
         ref.child("users").child((user)!).child("hobby").setValue(hobby)
         ref.child("users").child((user)!).child("name").setValue(name)
         
+        let userPreferences:[String:Any] = ["gender":sexLabel!,"hobbies":hobby]
+        userDatabase.set(userPreferences, forKey: "userInfo")
+        
+        AppDelegate.isProfileEdited = true
+        
         let alert = UIAlertController(title: "Success", message: "Your Profile is successfully updated", preferredStyle: .alert)
         let okaction = UIAlertAction(title: "OK", style: .default, handler: self.goToHomePage) 
         alert.addAction(okaction)
@@ -365,13 +371,16 @@ class editUserProfile:UIViewController{
             
             
             // Printing the URL of the stored images in the console
-            let images:[String] = (value?["images"] as? [String])!
-            let numberofimages = images.count
-            i = 0
-            while(i<numberofimages){
-                print("URR for images are \(images[i])")
-                i += 1
+            if let images:[String] = (value?["images"] as? [String]){
+                let numberofimages = images.count
+                i = 0
+                while(i<numberofimages){
+                    print("URR for images are \(images[i])")
+                    i += 1
+                }
             }
+            //let images:[String] = (value?["images"] as? [String])!
+            
             
             
             // Setting the Profile Picture

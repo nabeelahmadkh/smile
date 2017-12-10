@@ -23,6 +23,7 @@ class TextViewController: UIViewController, MFMessageComposeViewControllerDelega
     
     //var contacts:[String: String] = ["Abhijeet Kharkar":"319-512-8180"]
     var contacts:[String: String] = [:]
+    let userDatabase:UserDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
     }
@@ -50,7 +51,16 @@ class TextViewController: UIViewController, MFMessageComposeViewControllerDelega
                 }
                 print("Contacts = \(self.contacts)")
             }
-            self.view = GradientSelector().setGradient(view: self.view,type: 0)
+            
+            var gender:String = ""
+            
+            if let userInfo = self.userDatabase.dictionary(forKey: "userInfo") {
+                print("UserInfo = \(userInfo)")
+                gender = (userInfo["gender"] as! String).lowercased()
+                print("Gender = \(gender)")
+            }
+            
+            self.view = GradientSelector().setGradient(view: self.view,type: gender)
             self.smsText.text = "I am feeling low and need someone to converse with. I am not in a state to talk. Do reply."
             if(self.contacts.count == 0) {
                 self.sendSMSButton.isEnabled = false
@@ -93,6 +103,15 @@ class TextViewController: UIViewController, MFMessageComposeViewControllerDelega
     
     override func viewWillAppear(_ animated: Bool) {
         print("view will appear called __2__")
+        var gender:String = ""
+        
+        if let userInfo = userDatabase.dictionary(forKey: "userInfo") {
+            print("UserInfo = \(userInfo)")
+            gender = (userInfo["gender"] as! String).lowercased()
+            print("Gender = \(gender)")
+        }
+        
+        self.view = GradientSelector().setGradient(view: self.view,type: gender)
     }
     
     @IBAction func openEditContacts(_ sender: UIBarButtonItem) {

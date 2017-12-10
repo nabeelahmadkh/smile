@@ -94,9 +94,15 @@ class MusicViewController: UIViewController, UITableViewDelegate, UITableViewDat
             music.detailTextLabel?.text = AppDelegate.musicList[cellNum].components(separatedBy: "!#@#!")[2]
             music.detailTextLabel?.font = music.detailTextLabel?.font.withSize(10.0)
             music.detailTextLabel?.font = UIFont.init(name: "Avenir Next", size: 15.0)
-            /*if(cellNum == AppDelegate.currentIndex) {
-             music.imageView?.image = UIImage(named: "active")
-             }*/
+            if(cellNum == AppDelegate.currentIndex) {
+                music.imageView?.image = UIImage(named: "active")
+                //music.imageView?.
+                //music.accessoryView?.isHidden = false
+                //music.accessoryView = UIImageView(image: UIImage(named: "active"))
+            } else {
+                //music.accessoryView?.isHidden = true
+            }
+            
         }
         return music
     }

@@ -48,6 +48,7 @@ class VideoViewController: UIViewController {
             
             //print("Final Result inside viewDidLoad = \(FirebaseHelpers.finalResult)")
             //let canvas = self.view!
+            self.scrollView = GradientSelector().setGradientScrollView(view: self.scrollView,type: 0)
             let canvas = self.scrollView!
             print("Max X = \(canvas.bounds.maxX)")
             let vidW : CGFloat = canvas.bounds.maxX * 0.45
@@ -55,7 +56,7 @@ class VideoViewController: UIViewController {
             let vidEvenX : CGFloat = canvas.bounds.maxX * 0.03
             let vidOddX : CGFloat = canvas.bounds.maxX - vidEvenX - vidW
             print("Video Width = \(vidW) and Height = \(vidH)")
-            var vidY = canvas.bounds.maxY * 0.1
+            var vidY = canvas.bounds.maxY * 0.02
             self.scrollView.contentSize = CGSize.init(width: self.view.bounds.maxX, height: vidY + ((vidH + vidEvenX) * CGFloat((self.videoList.count +  1
                 )/2)))
             var count : Int = 0

@@ -264,17 +264,18 @@ class editUserProfile:UIViewController{
         ref.child("users").child((user)!).child("name").setValue(name)
         
         let alert = UIAlertController(title: "Success", message: "Your Profile is successfully updated", preferredStyle: .alert)
-        let okaction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let okaction = UIAlertAction(title: "OK", style: .default, handler: self.goToHomePage) 
         alert.addAction(okaction)
-        self.present(alert, animated: true, completion: goToHomePage)
-    
-        
+        self.present(alert, animated: true, completion: nil)
+        print("test 1")
     }
 
-    func goToHomePage(){
-        let storyboard = UIStoryboard(name: "Dashboard_Controller", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "userData") as UIViewController
-        self.present(vc, animated: true, completion: nil)
+    func goToHomePage(alert: UIAlertAction){
+        //let storyboard = UIStoryboard(name: "Dashboard_Controller", bundle: nil)
+        //let vc = storyboard.instantiateViewController(withIdentifier: "userData") as UIViewController
+        //self.present(vc, animated: true, completion: nil)
+        print("test 2")
+        self.navigationController?.popViewController(animated: true)
     }
 
     
@@ -339,13 +340,13 @@ class editUserProfile:UIViewController{
                 
                 if hobby[i] == signUpViewControler().hobbyLabels[2]{
                     self.checkBox3.setImage(self.checkBox, for: UIControlState.normal)
-                    self.box2Checked = true
+                    self.box3Checked = true
                     self.hobbies.append(signUpViewControler().hobbyLabels[2])
                 }
                 
                 if hobby[i] == signUpViewControler().hobbyLabels[3]{
                     self.checkBox4.setImage(self.checkBox, for: UIControlState.normal)
-                    self.box2Checked = true
+                    self.box4Checked = true
                     self.hobbies.append(signUpViewControler().hobbyLabels[3])
                 }
                 

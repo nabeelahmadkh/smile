@@ -271,9 +271,6 @@ class editUserProfile:UIViewController{
     }
 
     func goToHomePage(alert: UIAlertAction){
-        //let storyboard = UIStoryboard(name: "Dashboard_Controller", bundle: nil)
-        //let vc = storyboard.instantiateViewController(withIdentifier: "userData") as UIViewController
-        //self.present(vc, animated: true, completion: nil)
         print("test 2")
         self.navigationController?.popViewController(animated: true)
     }

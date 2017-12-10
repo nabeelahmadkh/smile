@@ -69,7 +69,7 @@ class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var hobbylabel2: UILabel!
     @IBOutlet weak var hobbylabel1: UILabel!
     @IBOutlet weak var hobbylabel: UILabel!
-    var hobbyLabels:[String] = ["Travel", "Technology", "Pets" , "Science"]
+    var hobbyLabels:[String] = ["Travel", "Technology", "Music", "Food"]
     
     
     //Male Female Radio Button Selected

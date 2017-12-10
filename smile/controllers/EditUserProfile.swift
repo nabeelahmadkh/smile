@@ -48,13 +48,14 @@ class editUserProfile:UIViewController{
     @IBOutlet weak var mobileTextField: UITextField!
     @IBOutlet weak var maleRadioButton: DLRadioButton!
     @IBOutlet weak var femaleRadioButton: DLRadioButton!
+    @IBOutlet weak var otherRadioButton: DLRadioButton!
     @IBOutlet weak var hobbyLabel1: UILabel!
     @IBOutlet weak var hobbyLabel2: UILabel!
     @IBOutlet weak var hobbyLabel3: UILabel!
     @IBOutlet weak var hobbyLabel4: UILabel!
     
     
-    //Male Female Radio Button Selected
+    //Male Female Other Radio Button Selected
     @IBAction func femaleRadioButtonPressed(_ sender: Any) {
         print("Female Radio Button Selected")
         sexButton = "Female"
@@ -62,6 +63,11 @@ class editUserProfile:UIViewController{
     @IBAction func maleRadioButtonPressed(_ sender: Any) {
         print("Male Radio Button Selected")
         sexButton = "Male"
+    }
+    
+    @IBAction func otherRadioButtonPressed(_ sender: Any) {
+        print("Other Radio Button Selected")
+        sexButton = "Other"
     }
     
     // Check Box Button 1 pressed
@@ -303,10 +309,15 @@ class editUserProfile:UIViewController{
                 self.maleRadioButton.isSelected = true
                 self.sexButton = "Male"
             }
-            else{
+            else if(sex == "Female"){
                 print("sex is FEMALE")
                 self.femaleRadioButton.isSelected = true
                 self.sexButton = "Female"
+            }
+            else{
+                print("sex is Other")
+                self.otherRadioButton.isSelected = true
+                self.sexButton = "Other"
             }
             let imageurl = value?["profilePicture"] as? String ?? ""
             let hobby:[String] = (value?["hobby"] as? [String]) ?? [""]
@@ -422,6 +433,9 @@ class editUserProfile:UIViewController{
         
         femaleRadioButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Bold", size: 16.0)
         femaleRadioButton.tintColor = UIColor.black
+        
+        otherRadioButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Bold", size: 16.0)
+        otherRadioButton.tintColor = UIColor.black
         
         //nameTextField.font = UIFont(name: "ChalkboardSE-Bold", size: 18.0)
         //nameTextField.textColor = UIColor.white

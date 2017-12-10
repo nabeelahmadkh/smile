@@ -309,10 +309,15 @@ class editUserProfile:UIViewController{
                 self.maleRadioButton.isSelected = true
                 self.sexButton = "Male"
             }
-            else{
+            else if(sex == "Female"){
                 print("sex is FEMALE")
                 self.femaleRadioButton.isSelected = true
                 self.sexButton = "Female"
+            }
+            else{
+                print("sex is Other")
+                self.otherRadioButton.isSelected = true
+                self.sexButton = "Other"
             }
             let imageurl = value?["profilePicture"] as? String ?? ""
             let hobby:[String] = (value?["hobby"] as? [String]) ?? [""]

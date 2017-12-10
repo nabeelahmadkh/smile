@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -345,7 +345,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="482" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6EA-9l-sEU">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="memeCell" rowHeight="482" id="tNK-8V-eW0" customClass="PostTableViewCell" customModule="smile" customModuleProvider="target">
@@ -392,8 +392,9 @@
                                                     <rect key="frame" x="-54" y="298" width="44" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-gG-74E">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-gG-74E">
                                                     <rect key="frame" x="6" y="333" width="44" height="44"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="kSm-KJ-Dqt"/>
                                                         <constraint firstAttribute="height" constant="44" id="z1Z-3Y-ZcZ"/>
@@ -422,6 +423,7 @@
                                             <outlet property="cellDescription" destination="Kbp-x5-YpG" id="VT1-aF-ncr"/>
                                             <outlet property="cellImage" destination="cor-cL-CQx" id="L9o-7B-KXb"/>
                                             <outlet property="cellLabel" destination="Cr3-c0-BSB" id="ph2-AX-S0x"/>
+                                            <outlet property="likeButton" destination="WxM-gG-74E" id="DvH-t6-n5C"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1112,7 +1114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Of0-Du-8G8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2194.202898550725" y="989.67391304347836"/>
+            <point key="canvasLocation" x="2123" y="987"/>
         </scene>
         <!--Upload Images View Controller-->
         <scene sceneID="jIU-AK-4rg">
@@ -1166,18 +1168,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Matter how dark days get, I will be here for you, I am Just a Phone Call away." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAU-oc-PSN">
-                                <rect key="frame" x="31" y="101" width="348" height="77"/>
+                                <rect key="frame" x="20" y="101" width="374" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aej-k0-EwX">
+                                <rect key="frame" x="20" y="242" width="374" height="212"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">The National Suicide Prevention Lifeline is a national network of local crisis centers that provides free and confidential emotional support to people in suicidal crisis or emotional distress 24 hours a day, 7 days a week. We're committed to improving crisis services and advancing suicide prevention by empowering individuals, advancing professional best practices, and building awareness.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61B-17-4wF">
-                                <rect key="frame" x="31" y="204" width="122" height="30"/>
+                                <rect key="frame" x="20" y="166" width="122" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Click Here to talk."/>
                                 <connections>
                                     <action selector="callHelpline:" destination="Bus-0g-t5g" eventType="touchUpInside" id="duu-UT-Clm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Fa-8m-1su">
+                                <rect key="frame" x="20" y="437" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Click Here to talk."/>
+                                <connections>
+                                    <action selector="callHelpline2:" destination="Bus-0g-t5g" eventType="touchUpInside" id="JQX-e3-WPs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1455,6 +1473,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="z0Q-bV-meH"/>
                     </view>
+                    <connections>
+                        <segue destination="qrv-D2-zUu" kind="show" identifier="backToMenu" id="TOt-A1-Kr1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIz-O4-cuX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2514,6 +2535,7 @@ lHmUfJSOlJGUlgAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAAJSYA
     <inferredMetricsTieBreakers>
         <segue reference="wIk-Qq-LlA"/>
         <segue reference="5Pz-On-D2e"/>
-        <segue reference="qhw-Ce-viY"/>
+        <segue reference="YYJ-k9-xhO"/>
+        <segue reference="TOt-A1-Kr1"/>
     </inferredMetricsTieBreakers>
 </document>

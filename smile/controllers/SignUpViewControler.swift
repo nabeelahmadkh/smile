@@ -74,7 +74,21 @@ class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UIN
     let userDatabase:UserDefaults = UserDefaults.standard
     
     
-    //Male Female Other Radio Button Selected
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        let tag = textField.tag + 1 as Int
+        let nextField: UIResponder? = textField.superview?.viewWithTag(tag)
+        
+        if let field: UIResponder = nextField{
+            field.becomeFirstResponder()
+        }
+        else{
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+    
+    
+    //Male Female Radio Button Selected
     @IBAction func femaleRadioButtonPressed(_ sender: Any) {
         print("Female Radio Button Selected")
         sexButton = "Female"

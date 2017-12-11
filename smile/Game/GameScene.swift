@@ -370,7 +370,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate,GameOverDelegate {
                 
                 //self.collisionDelegate?.launchViewController(scene: self)
                 
-                gamescene_delegate?.gameOverDelegateFunc!()
+                //gamescene_delegate?.gameOverDelegateFunc!()
+                
+                //UIControl().sendAction(#selector(NSXPCConnection.suspend), to: UIApplication.shared, for: nil)
+                
+                UIApplication.shared.keyWindow?.rootViewController = UIViewController()
+                
                 print("________2__________")
                 //GameViewController().dismiss(animated: true, completion: nil)
                 //StartScene().dismiss(animated: true, completion: nil)

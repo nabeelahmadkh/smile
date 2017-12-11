@@ -1495,7 +1495,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qm-Ck-Z5o">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="Dsc-l8-Nlx" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
+                                            <textField opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="Dsc-l8-Nlx" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
                                                 <rect key="frame" x="11" y="398" width="292" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -1507,9 +1507,10 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="confirmPassword:" destination="pqS-dk-vJj" eventType="editingDidEnd" id="aJw-am-SET"/>
+                                                    <outlet property="delegate" destination="pqS-dk-vJj" id="CZk-8G-CXV"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="RSg-mW-yWv" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="RSg-mW-yWv" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
                                                 <rect key="frame" x="11" y="258" width="292" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -1521,9 +1522,10 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="checkUsername:" destination="pqS-dk-vJj" eventType="editingDidEnd" id="yfD-hV-TPW"/>
+                                                    <outlet property="delegate" destination="pqS-dk-vJj" id="ZPj-vH-0Bd"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="OKH-eE-WZw" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
+                                            <textField opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="OKH-eE-WZw" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
                                                 <rect key="frame" x="11" y="468" width="292" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -1535,9 +1537,10 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="dateChecker:" destination="pqS-dk-vJj" eventType="editingDidEnd" id="zo3-Jn-cN1"/>
+                                                    <outlet property="delegate" destination="pqS-dk-vJj" id="Fwd-X7-oQr"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="CWt-4V-kv4" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
+                                            <textField opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="CWt-4V-kv4" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
                                                 <rect key="frame" x="11" y="328" width="292" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -1549,6 +1552,7 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="confirmPassword:" destination="pqS-dk-vJj" eventType="editingDidEnd" id="SkK-fg-tji"/>
+                                                    <outlet property="delegate" destination="pqS-dk-vJj" id="DAH-4m-mJk"/>
                                                 </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo@1x" highlightedImage="logo@1x" translatesAutoresizingMaskIntoConstraints="NO" id="zLQ-ID-vtU">
@@ -1604,16 +1608,19 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="V7G-Hl-g2l" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
+                                            <textField opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="V7G-Hl-g2l" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
                                                 <rect key="frame" x="11" y="591" width="292" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" textContentType="tel"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="pqS-dk-vJj" id="cOK-Af-0Oz"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwA-c4-foG">
                                                 <rect key="frame" x="30" y="845" width="151" height="38"/>
@@ -1727,7 +1734,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="Vhb-2R-hNl" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="Vhb-2R-hNl" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="187" width="292" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -1739,6 +1746,7 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="checkUsername:" destination="pqS-dk-vJj" eventType="editingDidEnd" id="d2t-zI-o65"/>
+                                                    <outlet property="delegate" destination="pqS-dk-vJj" id="2dG-74-Us0"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0A-1H-qed">
@@ -2533,9 +2541,9 @@ lHmUfJSOlJGUlgAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAAJSYA
         <image name="unchecked" width="96" height="96"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wIk-Qq-LlA"/>
+        <segue reference="coe-hq-tdz"/>
         <segue reference="5Pz-On-D2e"/>
-        <segue reference="YYJ-k9-xhO"/>
+        <segue reference="qhw-Ce-viY"/>
         <segue reference="TOt-A1-Kr1"/>
     </inferredMetricsTieBreakers>
 </document>

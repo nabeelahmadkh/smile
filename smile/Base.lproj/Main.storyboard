@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -346,7 +346,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="482" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6EA-9l-sEU">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="memeCell" rowHeight="482" id="tNK-8V-eW0" customClass="PostTableViewCell" customModule="smile" customModuleProvider="target">
@@ -393,8 +393,9 @@
                                                     <rect key="frame" x="-54" y="298" width="44" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-gG-74E">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-gG-74E">
                                                     <rect key="frame" x="6" y="333" width="44" height="44"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="kSm-KJ-Dqt"/>
                                                         <constraint firstAttribute="height" constant="44" id="z1Z-3Y-ZcZ"/>
@@ -423,6 +424,7 @@
                                             <outlet property="cellDescription" destination="Kbp-x5-YpG" id="VT1-aF-ncr"/>
                                             <outlet property="cellImage" destination="cor-cL-CQx" id="L9o-7B-KXb"/>
                                             <outlet property="cellLabel" destination="Cr3-c0-BSB" id="ph2-AX-S0x"/>
+                                            <outlet property="likeButton" destination="WxM-gG-74E" id="DvH-t6-n5C"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1162,6 +1164,14 @@
                                     <action selector="callHelpline:" destination="Bus-0g-t5g" eventType="touchUpInside" id="duu-UT-Clm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Fa-8m-1su">
+                                <rect key="frame" x="20" y="437" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Click Here to talk."/>
+                                <connections>
+                                    <action selector="callHelpline2:" destination="Bus-0g-t5g" eventType="touchUpInside" id="JQX-e3-WPs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97210741040000004" green="0.91310642829999999" blue="0.29795318840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="qFm-0m-n4J"/>
@@ -1454,6 +1464,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="z0Q-bV-meH"/>
                     </view>
+                    <connections>
+                        <segue destination="qrv-D2-zUu" kind="show" identifier="backToMenu" id="TOt-A1-Kr1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIz-O4-cuX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1473,7 +1486,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qm-Ck-Z5o">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="Dsc-l8-Nlx" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
+                                            <textField opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="Dsc-l8-Nlx" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
                                                 <rect key="frame" x="11" y="398" width="292" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -1485,9 +1498,10 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="confirmPassword:" destination="pqS-dk-vJj" eventType="editingDidEnd" id="aJw-am-SET"/>
+                                                    <outlet property="delegate" destination="pqS-dk-vJj" id="CZk-8G-CXV"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="RSg-mW-yWv" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="RSg-mW-yWv" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
                                                 <rect key="frame" x="11" y="258" width="292" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -1499,9 +1513,10 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="checkUsername:" destination="pqS-dk-vJj" eventType="editingDidEnd" id="yfD-hV-TPW"/>
+                                                    <outlet property="delegate" destination="pqS-dk-vJj" id="ZPj-vH-0Bd"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="OKH-eE-WZw" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
+                                            <textField opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="OKH-eE-WZw" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
                                                 <rect key="frame" x="11" y="468" width="292" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -1513,9 +1528,10 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="dateChecker:" destination="pqS-dk-vJj" eventType="editingDidEnd" id="zo3-Jn-cN1"/>
+                                                    <outlet property="delegate" destination="pqS-dk-vJj" id="Fwd-X7-oQr"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="CWt-4V-kv4" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
+                                            <textField opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="CWt-4V-kv4" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
                                                 <rect key="frame" x="11" y="328" width="292" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -1527,6 +1543,7 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="confirmPassword:" destination="pqS-dk-vJj" eventType="editingDidEnd" id="SkK-fg-tji"/>
+                                                    <outlet property="delegate" destination="pqS-dk-vJj" id="DAH-4m-mJk"/>
                                                 </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo@1x" highlightedImage="logo@1x" translatesAutoresizingMaskIntoConstraints="NO" id="zLQ-ID-vtU">
@@ -1608,12 +1625,15 @@
                                                 <rect key="frame" x="11" y="598" width="292" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" textContentType="tel"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="pqS-dk-vJj" id="cOK-Af-0Oz"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMw-gm-HFy">
                                                 <rect key="frame" x="294" y="489" width="110" height="30"/>
@@ -1731,6 +1751,7 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="checkUsername:" destination="pqS-dk-vJj" eventType="editingDidEnd" id="d2t-zI-o65"/>
+                                                    <outlet property="delegate" destination="pqS-dk-vJj" id="2dG-74-Us0"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0A-1H-qed">
@@ -2537,5 +2558,6 @@ lHmUfJSOlJGUlgAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAAJSYA
         <segue reference="wIk-Qq-LlA"/>
         <segue reference="iie-C3-DwQ"/>
         <segue reference="qhw-Ce-viY"/>
+        <segue reference="TOt-A1-Kr1"/>
     </inferredMetricsTieBreakers>
 </document>

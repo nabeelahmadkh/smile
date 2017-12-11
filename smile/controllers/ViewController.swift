@@ -34,7 +34,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //@IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var infoDisplayLabel: UILabel!
     
-    
+    func dataFromSignUp(_ email: String, _ pass: String){
+        
+        print("_____________________________________________FUNCTION CALLED ______________________________")
+        print("email is \(email)  password is \(pass)")
+        //userName.text = email as? String
+        //password.text = pass as? String
+        let loginID = email
+        let userPass = pass
+        
+        
+        Auth.auth().signIn(withEmail: loginID, password: userPass) { (user, error) in
+            // ...
+            if error == nil {
+                //self.infoDisplayLabel.text = "You are successfully Logged In"
+                //self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                //self.performSeguetoUserProfile()
+            }else{
+                //self.infoDisplayLabel.text = "\(error!.localizedDescription)"
+            }
+        }
+    }
     // Function defined to navigate the TextField to new TextField on pressing Next on the keyboard.
     // Tor run this function "tags" should be set for the individual TextField in incremental Order.
     // & the delegate for the TextField should be the ViewController.
@@ -96,6 +116,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if (Auth.auth().currentUser?.uid) != nil{
+            let email = Auth.auth().currentUser?.email
+            print("The user is already signed in. as \(email)")
+            performSeguetoUserProfile() // Performing seque to UserProfile page of the user is already signed in.
+        }
+        else{
+            print("tHE USER IS NOR SIGNED IN ")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

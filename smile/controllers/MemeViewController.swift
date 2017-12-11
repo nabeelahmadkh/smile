@@ -16,6 +16,48 @@ class MemeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var postsTableView: UITableView!
     var posts = NSMutableArray()
     var newHeight = CGFloat(266)
+    var buttonLiked = false
+    var rowIndex:IndexPath = IndexPath()
+    var totalcount = 0
+    var liked:[Bool] = []
+    var imagekeys:[String] = []
+    var userLiked:[String] = []
+    
+    var userLikedFetched:[String] = []
+   
+    
+    @IBAction func imagesLikeButtonTapped(_ sender: Any) {
+        print("like button tapped")
+        //likeButton.image = UIImage(cgImage: #imageLiteral(resourceName: "heart-colored") as! CGImage)
+        buttonLiked = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        userLikedFetched = []
+        let user = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference().root
+        postsTableView.rowHeight = UITableViewAutomaticDimension;
+        postsTableView.estimatedRowHeight = 420
+        ref.child("users").child(user!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let images:[String] = (value?["imagesLiked"] as? [String]) ?? [""]
+            
+            print("IMAGES LIKED OUTUPUT  OUTPUT IS \(images)")
+            self.userLikedFetched = images
+            print("value is \(images)")
+            
+            
+            self.title = "Memes"
+            self.postsTableView.estimatedRowHeight = 429
+            
+            self.loadData()
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
     
     override func viewDidLoad() {
         print("view did load appear")
@@ -23,16 +65,14 @@ class MemeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.postsTableView.delegate = self
         self.postsTableView.dataSource = self
         
-        postsTableView.rowHeight = UITableViewAutomaticDimension;
-        postsTableView.estimatedRowHeight = 420
         
         
-        self.title = "Memes"
+        
+        
+        
         //self.navigationController?.navigationBar.titleTextAttributes = UIFont(name: "ChalkboardSE-Bold", size: 25)!
         
-        self.postsTableView.estimatedRowHeight = 429
         
-        loadData()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -52,8 +92,22 @@ class MemeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print(" value is \(value)")
                 for post in value{
                     self.posts.add(post.value)
+                    print("KEYS ARE \(post.key)")
+                    self.imagekeys.append(post.key)
                     print("value of posts is \(self.posts)")
+                    self.liked.append(false)
+                    
                 }
+                for i in self.userLikedFetched{
+                    if self.imagekeys.contains(i){
+                        let position = self.imagekeys.index(of: i)
+                        self.liked[position!] = true
+                        self.userLiked.append(i)
+                    }
+                }
+                
+                print("LIKED ARRAY ARRAY ARRAY ARRAY ARRAY ARRAY ARRAY  IS \(self.liked)")
+                print("LIKED ARRAY ARRAY ARRAY ARRAY ARRAY ARRAY ARRAY  userLiked \(self.userLiked)")
                 self.postsTableView.reloadData()
             }
             
@@ -82,6 +136,7 @@ class MemeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         print("2 table view called count \(self.posts.count)")
+        totalcount = self.posts.count
         return self.posts.count
     }
     
@@ -100,6 +155,11 @@ class MemeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let url = URL(string: imageURL!)
         let data = try? Data(contentsOf: url!)
         let image = UIImage(data: data!)
+        let like = post["like"] as? Bool
+        //print(" LIKED VALUE IS \(like)")
+        
+        
+        
         //cell.cellImage.image = image
         
         // For changing the dimensions of the UIImageView 414*266
@@ -112,6 +172,8 @@ class MemeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //let aspectConstraint = constraint
         newHeight = postsTableView.frame.width / aspect
         print("The new heigth is equal to \(newHeight)")
+        
+        
         cell.cellImage.frame = CGRect(x: 0, y: 59, width: 414, height: newHeight)
         cell.cellImage.image = image
         //postsTableView.RowHeight = UITableViewAutomaticDimension
@@ -128,7 +190,47 @@ class MemeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.cellImage.alpha = 1
         })
         
+        print("INDEX PATH IS IS IS IS IS IS IS IS IS \(indexPath)")
+        
+        if (liked[indexPath[1]] == true){
+            cell.likeButton.image = #imageLiteral(resourceName: "heart-colored")
+            print("in Button liked if")
+            buttonLiked = false
+        }
+        else{
+            //cell.likeButton.image = UIImage(cgImage: #imageLiteral(resourceName: "heart") as! CGImage)
+            cell.likeButton.image = #imageLiteral(resourceName: "heart")
+            print("in Button liked else")
+            
+        }
+        
+        // Adding tapgesture recogniser on the heart button
+        //rowIndex = postsTableView.indexPath(for: cell)!
+        //rowIndex = indexPath
+        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(likeButtonClicked(recogniser:)))
+        cell.likeButton.addGestureRecognizer(tapGesture)
+        
         return cell
+    }
+    
+    
+    @objc func likeButtonClicked(recogniser: UITapGestureRecognizer){
+        print(" button clicked ")
+        let tapLocation = recogniser.location(in: self.postsTableView)
+        let indexPath = self.postsTableView.indexPathForRow(at: tapLocation)
+        print("the index path is \(indexPath)")
+        rowIndex = indexPath!
+        liked[rowIndex[1]] = true
+        print("THE VALUE OF ROWINDEX IS \(rowIndex[1])")
+        self.postsTableView.reloadRows(at: [indexPath!], with: UITableViewRowAnimation.none)
+        buttonLiked = true
+        userLiked.append(imagekeys[rowIndex[1]])
+        print("THE KEYS TO BE ADDED ARE \(userLiked)")
+        var user = Auth.auth().currentUser?.uid
+        var ref = Database.database().reference().root
+        
+        ref.child("users").child((user)!).child("imagesLiked").setValue(userLiked)
+        
     }
     
     

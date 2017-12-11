@@ -14,15 +14,27 @@ enum Enemies:Int {
     case large
 }
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+@objc protocol GameOverDelegate {
+    @objc optional func gameOverDelegateFunc()
+}
+
+class GameScene: SKScene, SKPhysicsContactDelegate,GameOverDelegate {
+    
     
     var tracksArray:[SKSpriteNode]? = [SKSpriteNode]()
     var player:SKSpriteNode?
     var target:SKSpriteNode?
+    //weak var gameViewController = GameViewController()
+    //var collisionDelegate: GameSceneDelegate?
+    //var viewController: GameViewController!
+    var gamescene_delegate : GameOverDelegate?
+    
+
     
     var currentScore:Int = 0{
         didSet {
             self.scoreLabel?.text = "SCORE: \(self.currentScore)"
+            GameHandler.sharedInstance.score = currentScore
         }
     }
     var remainingTime:TimeInterval = 60 {
@@ -48,14 +60,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let targetCategory:UInt32 = 0x1 << 2
     let powerUpCategory:UInt32 = 0x1 << 3
     
+    var pause:SKSpriteNode?
+    var quit:SKSpriteNode?
+    var menuButton:SKSpriteNode?
     
-    func launchGameTimer () {
+    
+    func launchGameTimer() {
         let timeAction = SKAction.repeatForever(SKAction.sequence([SKAction.run({
             self.remainingTime -= 1
         }),SKAction.wait(forDuration: 1)]))
         
         timeLabel?.run(timeAction)
     }
+    
     
     func setupTracks(){
         for i in 0 ... 8 {
@@ -128,16 +145,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func spwanEnemies () {
         var randomTrackNumber = 0
-        let createPowerUp = GKRandomSource.sharedRandom().nextBool()
+        let powerUpYN = GKRandomSource.sharedRandom().nextBool()
         
-        if createPowerUp {
+        if powerUpYN {
             randomTrackNumber = GKRandomSource.sharedRandom().nextInt(upperBound: 6) + 1
+            /*if let powerUpObject:SKSpriteNode? = self.createPowerUp(forTrack: randomTrackNumber) {
+                self.addChild(powerUpObject!)
+            }*/
             
-            
+            self.addChild(createPowerUp(forTrack: randomTrackNumber))
         }
         
         for i in 1 ... 7 {
             
+       
             if randomTrackNumber != i {
                 let randomEnemyType = Enemies(rawValue: GKRandomSource.sharedRandom().nextInt(upperBound: 3))!
                 if let newEnemy = createEnemy(type: randomEnemyType, forTrack: i) {
@@ -158,12 +179,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func createPowerUp(forTrack track:Int) -> SKSpriteNode{
-        let powerUpSprite = SKSpriteNode(imageNamed: "PowerUp")
+        let powerUpSprite = SKSpriteNode(imageNamed: "powerUp")
         powerUpSprite.name = "ENEMY"
         
         powerUpSprite.physicsBody = SKPhysicsBody(circleOfRadius: powerUpSprite.size.width / 2)
         powerUpSprite.physicsBody?.linearDamping = 0
         powerUpSprite.physicsBody?.categoryBitMask = powerUpCategory
+        powerUpSprite.physicsBody?.collisionBitMask = 0
         
         
         
@@ -179,10 +201,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     func createHUD () {
+        
+        pause = self.childNode(withName: "pause") as? SKSpriteNode
+        quit = self.childNode(withName: "quit") as? SKSpriteNode
+        menuButton = self.childNode(withName: "menuButton@2x-(1)") as? SKSpriteNode
+        print("Menu Button = \(menuButton)")
         timeLabel = self.childNode(withName: "time") as? SKLabelNode
         scoreLabel = self.childNode(withName: "score") as? SKLabelNode
         
-        remainingTime = 20
+        remainingTime = 60
         currentScore = 0
     }
     
@@ -198,16 +225,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func nextLevel (playerPhysicsBody:SKPhysicsBody){
         
         currentScore += 1
+        print("Here 1")
         self.run(SKAction.playSoundFileNamed("levelUp.wav", waitForCompletion: true))
+        print("Here 2")
         let emitter = SKEmitterNode(fileNamed: "fireworks.sks")
+        print("Here 3")
+        print("Emitter = \(emitter)")
         playerPhysicsBody.node?.addChild(emitter!)
-        
+        print("Here 4")
         self.run(SKAction.wait(forDuration: 0.5)){
+            print("Here 5")
             emitter?.removeFromParent()
+            print("Here 6")
             self.movePlayerToStart()
+            print("Here 7")
         }
+        
     }
     
+    func gameOver() {
+        
+        
+        GameHandler.sharedInstance.saveGameStats()
+        
+        
+        
+        self.run(SKAction.playSoundFileNamed("levelCompleted.wav", waitForCompletion: true))
+        
+        let transition = SKTransition.fade(withDuration: 1)
+        if let gameOverScene = SKScene(fileNamed: "GameOverScene") {
+            gameOverScene.scaleMode = .aspectFit
+            self.view?.presentScene(gameOverScene, transition: transition)
+        }
+        
+    }
     override func didMove(to view: SKView) {
         setupTracks()
         createHUD()
@@ -279,17 +330,79 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        //NotificationCenter.defaultCenter().postNotificationName("showController", object: nil, userInfo: nil)
+        
         if let touch = touches.first {
             let location = touch.previousLocation(in: self)
             let node = self.nodes(at: location).first
             
             if node?.name == "right" {
-                moveToNextTrack()
-            } else if node?.name == "up" {
+                if currentTrack < 8 {
+                    moveToNextTrack()
+                }
+            }else if node?.name == "menuButton"{
+                //var mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                //var vc = mainStoryboard.instantiateViewController(withIdentifier: "Dashboard_Controller") as! UIViewController
+                //self.view?.window?.rootViewController?.present(vc, animated: true, completion: nil)
+                
+                //let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                //let vc = mainStoryboard.instantiateViewController(withIdentifier: "Dashboard_Navigation")
+                //self.view?.window?.rootViewController?.present(vc, animated: true, completion: nil)
+                
+                //var vc: UIViewController = UIViewController()
+                //vc = self.view!.window!.rootViewController!
+                //vc.performSegue(withIdentifier: "backToMenu", sender: vc)
+                
+                //self.performSegue("backToMenu", sender: self)
+                
+                //self.collisionDelegate?.launchViewController(scene: self)
+                
+                gamescene_delegate?.gameOverDelegateFunc!()
+                print("________1__________")
+                
+            }
+            else if node?.name == "quit"{
+                //vc.performSegue(withIdentifier: "backToMenu", sender: vc)
+                
+                //self.collisionDelegate?.launchViewController(scene: self)
+                
+                //gamescene_delegate?.gameOverDelegateFunc!()
+                
+                //UIControl().sendAction(#selector(NSXPCConnection.suspend), to: UIApplication.shared, for: nil)
+                
+                UIApplication.shared.keyWindow?.rootViewController = UIViewController()
+                
+                print("________2__________")
+                //GameViewController().dismiss(animated: true, completion: nil)
+                //StartScene().dismiss(animated: true, completion: nil)
+                //var newdashboard = DashboardViewController()
+                //newdashboard.viewDidLoad()
+                
+                //let theVC = self.viewController?.storyboard?.instantiateViewController(withIdentifier: "TrumpVC") as! TrumpViewController
+                
+                //self.viewController?.navigationController?.pushViewController(theVC, animated: true)
+                //self.viewController?.removeFromParentViewController()
+                //self.viewController?.dismiss(animated: true, completion: nil)
+                //self.view?.presentScene(nil)
+                //let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                //let vc = mainStoryboard.instantiateViewController(withIdentifier: "Dashboard_Navigation")
+                
+                //self.view?.window?.rootViewController?.present(vc, animated: true, completion: nil)
+            }
+            else if node?.name == "up" {
                 moveVertically(up: true)
             } else if node?.name == "down" {
                 moveVertically(up: false)
+            } else if node?.name == "pause", let scene = self.scene {
+                if scene.isPaused {
+                    scene.isPaused = false
+                }else {
+                    scene.isPaused = true
+                }
             }
         }
     }
@@ -323,6 +436,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.run(SKAction.playSoundFileNamed("fail.wav", waitForCompletion: true))
             movePlayerToStart()
         } else if playerBody.categoryBitMask == playerCategory && otherBody.categoryBitMask == targetCategory {
+            print("PlayerBody = \(playerBody), NODE = \(playerBody.node)")
             nextLevel(playerPhysicsBody: playerBody)
         }
         
@@ -344,8 +458,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if remainingTime <= 5 {
             timeLabel?.fontColor = UIColor.red
         }
+        if remainingTime == 0 {
+            gameOver()
+        }
         // Called before each frame is rendered
     }
 }
-
 

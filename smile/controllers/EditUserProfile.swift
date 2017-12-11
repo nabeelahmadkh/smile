@@ -17,7 +17,7 @@ import Photos
 import DLRadioButton
 
 
-class editUserProfile:UIViewController{
+class editUserProfile:UIViewController, UITextFieldDelegate{
     
     var SelectedAssets = [PHAsset]()
     var PhotoArray = [UIImage]()
@@ -58,7 +58,18 @@ class editUserProfile:UIViewController{
     
     let userDatabase:UserDefaults = UserDefaults.standard
     
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        let tag = textField.tag + 1 as Int
+        let nextField: UIResponder? = textField.superview?.viewWithTag(tag)
+        
+        if let field: UIResponder = nextField{
+            field.becomeFirstResponder()
+        }
+        else{
+            textField.resignFirstResponder()
+        }
+        return false
+    }
     
     
     //Male Female Other Radio Button Selected

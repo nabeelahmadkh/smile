@@ -331,6 +331,7 @@
                         <segue destination="Bus-0g-t5g" kind="show" identifier="dashToPhone" id="uff-ck-Agj"/>
                         <segue destination="Xna-s6-IFl" kind="show" identifier="dashToText" id="TKA-cF-DU6"/>
                         <segue destination="Y4N-Xr-Ckj" kind="show" identifier="dashToGallery" id="iFe-d7-dEO"/>
+                        <segue destination="gIG-vc-gOb" kind="show" identifier="dashToAccount" id="qGR-SE-J5q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSl-p0-695" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -926,7 +927,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-Dh-Okq" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
+                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-Dh-Okq" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
                                         <rect key="frame" x="46" y="211" width="323" height="45.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -936,19 +937,25 @@
                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="kzj-D7-ppc" id="VBQ-63-77d"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="qmA-lX-IzC" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
+                                    <textField opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="qmA-lX-IzC" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
                                         <rect key="frame" x="46" y="272" width="323" height="45.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="kzj-D7-ppc" id="Day-nx-WZX"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="5P1-Kr-1ag" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="5P1-Kr-1ag" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
                                         <rect key="frame" x="46" y="91.5" width="323" height="45.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -958,6 +965,9 @@
                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="kzj-D7-ppc" id="6Qi-cg-i8I"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nl-8p-P3E">
                                         <rect key="frame" x="46" y="458" width="40" height="29"/>
@@ -2561,8 +2571,10 @@ lHmUfJSOlJGUlgAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAAJSYA
         <image name="unchecked" width="96" height="96"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="iFe-d7-dEO"/>
         <segue reference="wIk-Qq-LlA"/>
         <segue reference="iie-C3-DwQ"/>
         <segue reference="qhw-Ce-viY"/>
+        <segue reference="qGR-SE-J5q"/>
     </inferredMetricsTieBreakers>
 </document>

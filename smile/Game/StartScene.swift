@@ -18,11 +18,6 @@ class StartScene: SKScene {
     
     var scrollingBG:ScrollingBackground?
     
-    weak var gameViewController = GameScene()
-    
-    //var delegate: GameDelegate?
-
-    
     
     override func didMove(to view: SKView) {
         playButton = self.childNode(withName: "startButton") as? SKSpriteNode

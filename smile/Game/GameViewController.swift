@@ -10,19 +10,12 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-protocol GameDelegate {
-    func gameOver()
-}
-
-
 class GameViewController: UIViewController {
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //NotificationCenter.default.addObserver(self, selector: "presentView", name: NSNotification.Name(rawValue: "showController"), object: nil)
         
         func buttonClick(sender: UIButton) {
             
@@ -46,10 +39,6 @@ class GameViewController: UIViewController {
                 scene.scaleMode = .aspectFill
                 
                 // Present the scene
-                //scene.GameViewController = self
-                //scene.collisionDelegate = self
-                //scene.delegate = self as! SKSceneDelegate
-                
                 view.presentScene(scene)
             }
             
@@ -58,31 +47,6 @@ class GameViewController: UIViewController {
             view.showsFPS = true
             view.showsNodeCount = true
         }
-    }
-    
-    @objc func gameOverDelegateFunc() {
-        print("_______5______")
-        self.performSegue(withIdentifier: "backToMenu", sender: nil)
-    }
-    
-    func launchViewController(scene: SKScene) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = mainStoryboard.instantiateViewController(withIdentifier: "Dashboard_Controller")
-        present(vc, animated: true, completion: nil)
-        // note that you don't need to go through a bunch of optionals to call presentViewController
-        
-        //var mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        //var vc = mainStoryboard.instantiateViewController(withIdentifier: "Dashboard_Controller") as! UIViewController
-        //self.view?.window?.rootViewController?.present(vc, animated: true, completion: nil)
-    }
-    
-    func goToHome(){
-        var mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        //var vc = mainStoryboard.instantiateViewController(withIdentifier: "Dashboard_Controller") as! UIViewController
-        let controller = mainStoryboard.instantiateViewController(withIdentifier: "Dashboard_Controller")
-        //self.view?.window?.rootViewController?.present(vc, animated: true, completion: nil)
-        self.present(controller, animated: false, completion: nil)
-        print("________3__________")
     }
     
     override var shouldAutorotate: Bool {

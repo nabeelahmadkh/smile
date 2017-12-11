@@ -12,7 +12,9 @@ import UIKit
 class PhoneViewController: UIViewController{
     
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var textLabel2: UILabel!
     @IBOutlet weak var callButton: UIButton!
+    @IBOutlet weak var callButton2: UIButton!
     
     let userDatabase:UserDefaults = UserDefaults.standard
     
@@ -69,6 +71,12 @@ class PhoneViewController: UIViewController{
         textLabel.textColor = AppDelegate.labelTextColor
         callButton.backgroundColor = AppDelegate.buttonColor
         callButton.setTitleColor(AppDelegate.buttonTextColor, for: UIControlState.normal)
+        
+        textLabel2.backgroundColor = AppDelegate.labelColor
+        textLabel2.textColor = AppDelegate.labelTextColor
+        callButton2.backgroundColor = AppDelegate.buttonColor
+        callButton2.setTitleColor(AppDelegate.buttonTextColor, for: UIControlState.normal)
+        
         self.title = "HelpLine"
     }
 }

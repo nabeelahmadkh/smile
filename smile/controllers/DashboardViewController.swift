@@ -268,6 +268,11 @@ class DashboardViewController: UIViewController {
             DispatchQueue.main.async(){
                 self.performSegue(withIdentifier: "dashToText", sender: self)
             }
+        } else if(sender.title(for: UIControlState.selected)! == "Account"){
+            print("Perform segue called")
+            DispatchQueue.main.async(){
+                self.performSegue(withIdentifier: "dashToProfile2", sender: self)
+            }
         }
         else {
             /*

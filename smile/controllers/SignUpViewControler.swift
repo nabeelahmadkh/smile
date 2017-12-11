@@ -31,7 +31,7 @@ class LeftPaddedTextField2: UITextField {
 }
 
 
-class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{
     
     // Declaring variables for the SignUp View Controler
     @IBOutlet weak var signUpTextLabel: UILabel!
@@ -70,6 +70,20 @@ class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var hobbylabel1: UILabel!
     @IBOutlet weak var hobbylabel: UILabel!
     var hobbyLabels:[String] = ["Travel", "Technology", "Music", "Food"]
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        let tag = textField.tag + 1 as Int
+        let nextField: UIResponder? = textField.superview?.viewWithTag(tag)
+        
+        if let field: UIResponder = nextField{
+            field.becomeFirstResponder()
+        }
+        else{
+            textField.resignFirstResponder()
+        }
+        return false
+    }
     
     
     //Male Female Radio Button Selected
@@ -271,6 +285,11 @@ class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UIN
                                     print ("Error signing out: %@", signOutError)
                                 }
                                 DispatchQueue.main.async(){
+                                    
+                                    let VC = ViewController()
+                                    print("USERNAME IS \(self.usernameTextField.text!)  PASSWORD IS \(self.passwordTextField.text!)")
+                                    VC.dataFromSignUp(self.usernameTextField.text!, self.passwordTextField.text!)
+                                    
                                     let alert = UIAlertController(title: "Success", message: "Your SignUp is Successfully complete. Click OK to goto Login Page", preferredStyle: .alert)
                                     let okaction = UIAlertAction(title: "OK", style: .default, handler: self.goToLogin)
                                     alert.addAction(okaction)
@@ -288,6 +307,7 @@ class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UIN
                                     print ("Error signing out: %@", signOutError)
                                 }
                                 DispatchQueue.main.async(){
+                                   
                                     self.performSegue(withIdentifier: "signupToLogin", sender: self)
                                 }
                             }
@@ -367,8 +387,13 @@ class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UIN
     
     
     
+    
     // Runs at first when the Image View Controller Loads.
     override func viewDidLoad() {
+        
+        //let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("dismissKeyboard:"))
+        //view.addGestureRecognizer(tap)
+        
         // Assinging Font, Size & Color to the TextFields
         //usernameTextField.font = UIFont(name: "ChalkboardSE-Bold", size: 18.0)
         //usernameTextField.textColor = UIColor.black

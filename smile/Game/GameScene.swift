@@ -14,22 +14,11 @@ enum Enemies:Int {
     case large
 }
 
-@objc protocol GameOverDelegate {
-    @objc optional func gameOverDelegateFunc()
-}
-
-class GameScene: SKScene, SKPhysicsContactDelegate,GameOverDelegate {
-    
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var tracksArray:[SKSpriteNode]? = [SKSpriteNode]()
     var player:SKSpriteNode?
     var target:SKSpriteNode?
-    //weak var gameViewController = GameViewController()
-    //var collisionDelegate: GameSceneDelegate?
-    //var viewController: GameViewController!
-    var gamescene_delegate : GameOverDelegate?
-    
-
     
     var currentScore:Int = 0{
         didSet {
@@ -65,14 +54,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate,GameOverDelegate {
     var menuButton:SKSpriteNode?
     
     
-    func launchGameTimer() {
+    func launchGameTimer () {
         let timeAction = SKAction.repeatForever(SKAction.sequence([SKAction.run({
             self.remainingTime -= 1
         }),SKAction.wait(forDuration: 1)]))
         
         timeLabel?.run(timeAction)
     }
-    
     
     func setupTracks(){
         for i in 0 ... 8 {
@@ -330,12 +318,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate,GameOverDelegate {
         
     }
     
-    
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        //NotificationCenter.defaultCenter().postNotificationName("showController", object: nil, userInfo: nil)
-        
         if let touch = touches.first {
             let location = touch.previousLocation(in: self)
             let node = self.nodes(at: location).first
@@ -345,53 +328,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate,GameOverDelegate {
                     moveToNextTrack()
                 }
             }else if node?.name == "menuButton"{
-                //var mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                //var vc = mainStoryboard.instantiateViewController(withIdentifier: "Dashboard_Controller") as! UIViewController
-                //self.view?.window?.rootViewController?.present(vc, animated: true, completion: nil)
-                
-                //let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                //let vc = mainStoryboard.instantiateViewController(withIdentifier: "Dashboard_Navigation")
-                //self.view?.window?.rootViewController?.present(vc, animated: true, completion: nil)
-                
-                //var vc: UIViewController = UIViewController()
-                //vc = self.view!.window!.rootViewController!
-                //vc.performSegue(withIdentifier: "backToMenu", sender: vc)
-                
-                //self.performSegue("backToMenu", sender: self)
-                
-                //self.collisionDelegate?.launchViewController(scene: self)
-                
-                gamescene_delegate?.gameOverDelegateFunc!()
-                print("________1__________")
                 
             }
             else if node?.name == "quit"{
-                //vc.performSegue(withIdentifier: "backToMenu", sender: vc)
                 
-                //self.collisionDelegate?.launchViewController(scene: self)
-                
-                //gamescene_delegate?.gameOverDelegateFunc!()
-                
-                //UIControl().sendAction(#selector(NSXPCConnection.suspend), to: UIApplication.shared, for: nil)
-                
-                UIApplication.shared.keyWindow?.rootViewController = UIViewController()
-                
-                print("________2__________")
-                //GameViewController().dismiss(animated: true, completion: nil)
-                //StartScene().dismiss(animated: true, completion: nil)
-                //var newdashboard = DashboardViewController()
-                //newdashboard.viewDidLoad()
-                
-                //let theVC = self.viewController?.storyboard?.instantiateViewController(withIdentifier: "TrumpVC") as! TrumpViewController
-                
-                //self.viewController?.navigationController?.pushViewController(theVC, animated: true)
-                //self.viewController?.removeFromParentViewController()
-                //self.viewController?.dismiss(animated: true, completion: nil)
-                //self.view?.presentScene(nil)
-                //let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                //let vc = mainStoryboard.instantiateViewController(withIdentifier: "Dashboard_Navigation")
-                
-                //self.view?.window?.rootViewController?.present(vc, animated: true, completion: nil)
             }
             else if node?.name == "up" {
                 moveVertically(up: true)

@@ -26,7 +26,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static var popList:[String] = []
     static var selectedGenre:String = "All"
     static var currentIndex:Int = 0
+    
+    //When profile is edited, the flag will be set to true
     static var isProfileEdited:Bool = false
+    
+    //Color Scheme
+    static var buttonColor:UIColor!
+    static var labelColor:UIColor!
+    static var tableCellColor:UIColor!
+    static var textfieldColor:UIColor!
+    static var buttonTextColor:UIColor!
+    static var labelTextColor:UIColor!
+    static var tableCellTextColor:UIColor!
+    static var textfieldTextColor:UIColor!
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return self.orientationLock

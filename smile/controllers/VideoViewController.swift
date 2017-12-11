@@ -58,18 +58,20 @@ class VideoViewController: UIViewController {
             
             //print("Final Result inside viewDidLoad = \(FirebaseHelpers.finalResult)")
             //let canvas = self.view!
-            self.scrollView = GradientSelector().setGradientScrollView(view: self.scrollView,type: gender)
+            //self.scrollView = GradientSelector().setGradientScrollView(view: self.scrollView,type: gender)
             let canvas = self.scrollView!
             print("Max X = \(canvas.bounds.maxX)")
             //let vidW : CGFloat = canvas.bounds.maxX * 0.45
-            let vidW : CGFloat = canvas.bounds.maxX * 0.94
+            let vidW : CGFloat = canvas.bounds.maxX * 0.86
             let vidH : CGFloat = vidW / 16 * 10
-            let vidEvenX : CGFloat = canvas.bounds.maxX * 0.03
+            let vidEvenX : CGFloat = canvas.bounds.maxX * 0.07
             let vidOddX : CGFloat = canvas.bounds.maxX - vidEvenX - vidW
             print("Video Width = \(vidW) and Height = \(vidH)")
             var vidY = canvas.bounds.maxY * 0.03
-            self.scrollView.contentSize = CGSize.init(width: self.view.bounds.maxX, height: vidY + ((vidH + vidEvenX) * CGFloat((self.videoList.count +  1
-                )/2)))
+            //self.scrollView.contentSize = CGSize.init(width: self.view.bounds.maxX, height: vidY + ((vidH + vidEvenX) * CGFloat((self.videoList.count +  1
+             //   )/2)))
+            print("Content Height = \(vidY + ((vidH + vidEvenX) * CGFloat((self.videoList.count +  1))))")
+            self.scrollView.contentSize = CGSize.init(width: self.view.bounds.maxX, height: vidY + ((vidH + vidEvenX) * CGFloat((self.videoList.count +  1))))
             var count : Int = 0
             for video in self.videoList {
                 print("Name = \(video.components(separatedBy: "!#@#!")[0])")
@@ -116,6 +118,8 @@ class VideoViewController: UIViewController {
                     print(error)
                 }
             }
+            
+            self.scrollView = GradientSelector().setGradientScrollView(view: self.scrollView,type: gender)
         })
     }
     

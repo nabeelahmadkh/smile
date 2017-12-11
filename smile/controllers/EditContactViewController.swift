@@ -18,6 +18,24 @@ class EditTextViewController: UIViewController {
     @IBOutlet weak var contactMobile2: UITextField!
     @IBOutlet weak var contactName3: UITextField!
     @IBOutlet weak var contactMobile3: UITextField!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contact1Label: UILabel!
+    @IBOutlet weak var name1Label: UILabel!
+    @IBOutlet weak var mobile1Label: UILabel!
+    @IBOutlet weak var contact2Label: UILabel!
+    @IBOutlet weak var name2Label: UILabel!
+    @IBOutlet weak var mobile2Label: UILabel!
+    @IBOutlet weak var contact3Label: UILabel!
+    @IBOutlet weak var name3Label: UILabel!
+    @IBOutlet weak var mobile3Label: UILabel!
+    @IBOutlet weak var updateButton: UIButton!
+    
+    @IBOutlet weak var name1Text: UITextField!
+    @IBOutlet weak var mobile1Text: UITextField!
+    @IBOutlet weak var name2Text: UITextField!
+    @IBOutlet weak var mobile2Text: UITextField!
+    @IBOutlet weak var name3Text: UITextField!
+    @IBOutlet weak var mobile3Text: UITextField!
     
     let ref = Database.database().reference().root
     let uid = Auth.auth().currentUser?.uid
@@ -36,6 +54,46 @@ class EditTextViewController: UIViewController {
         
         self.view = GradientSelector().setGradient(view: self.view,type: gender)
         
+        titleLabel.backgroundColor = AppDelegate.buttonColor
+        titleLabel.textColor = AppDelegate.buttonTextColor
+        
+        contact1Label.backgroundColor = AppDelegate.labelColor
+        contact1Label.textColor = AppDelegate.labelTextColor
+        contact2Label.backgroundColor = AppDelegate.labelColor
+        contact2Label.textColor = AppDelegate.labelTextColor
+        contact3Label.backgroundColor = AppDelegate.labelColor
+        contact3Label.textColor = AppDelegate.labelTextColor
+        
+        name1Label.backgroundColor = AppDelegate.labelColor
+        name1Label.textColor = AppDelegate.labelTextColor
+        name2Label.backgroundColor = AppDelegate.labelColor
+        name2Label.textColor = AppDelegate.labelTextColor
+        name3Label.backgroundColor = AppDelegate.labelColor
+        name3Label.textColor = AppDelegate.labelTextColor
+        
+        mobile1Label.backgroundColor = AppDelegate.labelColor
+        mobile1Label.textColor = AppDelegate.labelTextColor
+        mobile2Label.backgroundColor = AppDelegate.labelColor
+        mobile2Label.textColor = AppDelegate.labelTextColor
+        mobile3Label.backgroundColor = AppDelegate.labelColor
+        mobile3Label.textColor = AppDelegate.labelTextColor
+        
+        name1Text.backgroundColor = AppDelegate.textfieldColor
+        name1Text.textColor = AppDelegate.labelTextColor
+        name2Text.backgroundColor = AppDelegate.textfieldColor
+        name2Text.textColor = AppDelegate.labelTextColor
+        name3Text.backgroundColor = AppDelegate.textfieldColor
+        name3Text.textColor = AppDelegate.labelTextColor
+        
+        mobile1Text.backgroundColor = AppDelegate.textfieldColor
+        mobile1Text.textColor = AppDelegate.labelTextColor
+        mobile2Text.backgroundColor = AppDelegate.textfieldColor
+        mobile2Text.textColor = AppDelegate.labelTextColor
+        mobile3Text.backgroundColor = AppDelegate.textfieldColor
+        mobile3Text.textColor = AppDelegate.labelTextColor
+        
+        updateButton.backgroundColor = AppDelegate.buttonColor
+        updateButton.setTitleColor(AppDelegate.buttonTextColor, for: UIControlState.selected)
         ref.child("users").child(uid!).child("emergency_contacts").child("contact1").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary

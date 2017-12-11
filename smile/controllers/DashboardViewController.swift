@@ -45,7 +45,7 @@ class DashboardViewController: UIViewController {
             dashboardOptionsList.append("Account")
         }
         
-        self.scrollView = GradientSelector().setGradientScrollView(view: self.scrollView,type: gender)
+        //self.scrollView = GradientSelector().setGradientScrollView(view: self.scrollView,type: gender)
         
         //let fb = FirebaseHelpers()
         //fb.fbSelect(tableName: "videos", selectColumnNames: ["v_url"], columnNames: [], parameters: [], isAnd: false)
@@ -110,8 +110,8 @@ class DashboardViewController: UIViewController {
             }
             
             //dashboardThumbnail.backgroundColor = UIColor.black
-            //dashboardThumbnail.backgroundColor = UIColor(red: 213/256, green: 154/256, blue: 9/256, alpha: 1.0)
-            if(gender == "male") {
+            dashboardThumbnail.backgroundColor = AppDelegate.labelColor
+            /*if(gender == "male") {
                 dashboardThumbnail.backgroundColor = UIColor(red: 130/256, green: 155/256, blue: 214/256, alpha: 1.0)
             } else if (gender == "female") {
                 dashboardThumbnail.backgroundColor = UIColor(red: 230/256, green: 120/256, blue: 200/256, alpha: 1.0)
@@ -119,7 +119,7 @@ class DashboardViewController: UIViewController {
                 dashboardThumbnail.backgroundColor = UIColor(red: 183/256, green: 130/256, blue: 214/256, alpha: 1.0)
             } else {
                 dashboardThumbnail.backgroundColor = UIColor(red: 116/256, green: 160/256, blue: 232/256, alpha: 1.0)
-            }
+            }*/
             dashboardThumbnail.contentMode = UIViewContentMode.scaleAspectFit
             dashboardThumbnail.isHidden = false
             dashboardThumbnail.isOpaque = true
@@ -147,6 +147,8 @@ class DashboardViewController: UIViewController {
             //    print(error)
             //}
         }
+        
+        self.scrollView = GradientSelector().setGradientScrollView(view: self.scrollView,type: gender)
         //})
     }
     

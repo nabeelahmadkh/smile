@@ -105,6 +105,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 self.infoDisplayLabel.text = "\(error!.localizedDescription)"
             }
         }
+        
     }
     
     // Performing Segue to UserProfile Page
@@ -131,6 +132,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if (Auth.auth().currentUser?.uid) != nil{
             let email = Auth.auth().currentUser?.email
             print("The user is already signed in. as \(email)")
+            
+            
+            let userDatabase:UserDefaults = UserDefaults.standard
+            
+            var gender:String = ""
+            
+            if let userInfo = userDatabase.dictionary(forKey: "userInfo") {
+                print("UserInfo = \(userInfo)")
+                gender = (userInfo["gender"] as! String).lowercased()
+                print("Gender = \(gender)")
+            }
+            
+            GradientSelector().setColorScheme(gender : gender)
+            
             performSeguetoUserProfile() // Performing seque to UserProfile page of the user is already signed in.
         }
         else{

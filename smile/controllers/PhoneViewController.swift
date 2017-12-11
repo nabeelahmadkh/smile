@@ -12,6 +12,9 @@ import UIKit
 class PhoneViewController: UIViewController{
     
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var callButton: UIButton!
+    
+    let userDatabase:UserDefaults = UserDefaults.standard
     
     @IBAction func callHelpline2(_ sender: Any) {
         let number = "+13194008304"
@@ -53,7 +56,19 @@ class PhoneViewController: UIViewController{
     
     
     override func viewDidLoad() {
-        textLabel = ComponentFormatter().setLabel(textLabel, 18, UIColor.black)
-        self.title = "HelpLines"
+        var gender:String = ""
+        
+        if let userInfo = self.userDatabase.dictionary(forKey: "userInfo") {
+            print("UserInfo = \(userInfo)")
+            gender = (userInfo["gender"] as! String).lowercased()
+            print("Gender = \(gender)")
+        }
+        self.view = GradientSelector().setGradient(view: self.view,type: gender)
+        //textLabel = ComponentFormatter().setLabel(textLabel, 18, UIColor.black)
+        textLabel.backgroundColor = AppDelegate.labelColor
+        textLabel.textColor = AppDelegate.labelTextColor
+        callButton.backgroundColor = AppDelegate.buttonColor
+        callButton.setTitleColor(AppDelegate.buttonTextColor, for: UIControlState.normal)
+        self.title = "HelpLine"
     }
 }

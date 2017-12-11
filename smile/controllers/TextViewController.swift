@@ -16,6 +16,7 @@ class TextViewController: UIViewController, MFMessageComposeViewControllerDelega
     @IBOutlet weak var smsText: UITextView!
     @IBOutlet weak var notice: UILabel!
     @IBOutlet weak var sendSMSButton: UIButton!
+    @IBOutlet weak var previewLabel: UILabel!
     
     var contactNumbers:[String]! = []
     
@@ -23,14 +24,23 @@ class TextViewController: UIViewController, MFMessageComposeViewControllerDelega
     
     //var contacts:[String: String] = ["Abhijeet Kharkar":"319-512-8180"]
     var contacts:[String: String] = [:]
+    let userDatabase:UserDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
+        
+        var gender:String = ""
+        
+        if let userInfo = self.userDatabase.dictionary(forKey: "userInfo") {
+            print("UserInfo = \(userInfo)")
+            gender = (userInfo["gender"] as! String).lowercased()
+            print("Gender = \(gender)")
+        }
+        
+        self.view = GradientSelector().setGradient(view: self.view,type: gender)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         print("view did appear call __1__")
-        
-        
         
         let uid = Auth.auth().currentUser?.uid
         ref = Database.database().reference()
@@ -50,7 +60,6 @@ class TextViewController: UIViewController, MFMessageComposeViewControllerDelega
                 }
                 print("Contacts = \(self.contacts)")
             }
-            self.view = GradientSelector().setGradient(view: self.view,type: 0)
             self.smsText.text = "I am feeling low and need someone to converse with. I am not in a state to talk. Do reply."
             if(self.contacts.count == 0) {
                 self.sendSMSButton.isEnabled = false
@@ -89,6 +98,15 @@ class TextViewController: UIViewController, MFMessageComposeViewControllerDelega
             }
         })
         
+        segmentedControl.backgroundColor = AppDelegate.textfieldColor
+        segmentedControl.tintColor = AppDelegate.buttonColor
+        previewLabel.backgroundColor = AppDelegate.buttonColor
+        previewLabel.textColor = AppDelegate.buttonTextColor
+        smsText.backgroundColor = AppDelegate.textfieldColor
+        smsText.textColor = AppDelegate.labelTextColor
+        notice.backgroundColor = AppDelegate.textfieldColor
+        sendSMSButton.backgroundColor = AppDelegate.buttonColor
+        sendSMSButton.setTitleColor(AppDelegate.buttonTextColor, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -64,12 +64,14 @@ class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var nameTextField: LeftPaddedTextField2!
     @IBOutlet weak var maleRadioButton: DLRadioButton!
     @IBOutlet weak var femaleRadioButton: DLRadioButton!
+    @IBOutlet weak var otherRadioButton: DLRadioButton!
     @IBOutlet weak var hobbylabel3: UILabel!
     @IBOutlet weak var hobbylabel4: UILabel!
     @IBOutlet weak var hobbylabel2: UILabel!
     @IBOutlet weak var hobbylabel1: UILabel!
     @IBOutlet weak var hobbylabel: UILabel!
-    var hobbyLabels:[String] = ["Travel", "Technology", "Music", "Food"]
+    var hobbyLabels:[String] = ["Travel", "Technology", "Shopping", "Food"]
+    let userDatabase:UserDefaults = UserDefaults.standard
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
@@ -95,6 +97,11 @@ class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func maleRadioButtonPressed(_ sender: Any) {
         print("Male Radio Button Selected")
         sexButton = "Male"
+    }
+    
+    @IBAction func otherRadioButtonPressed(_ sender: Any) {
+        print("Other Radio Button Selected")
+        sexButton = "Other"
     }
     
     // Validating Date is in Correct Format or not
@@ -264,7 +271,7 @@ class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UIN
                     ref.child("users").child((user?.uid)!).child("hobby").setValue(hobby)
                     ref.child("users").child((user?.uid)!).child("name").setValue(name)
                     
-                    // Upload profile Picture to Firebase Storage and save the referance in the Database.
+                    // Upload profile Picture to Firebase Storage and save the reference in the Database.
                     if let imageData:Data = UIImagePNGRepresentation(self.imageSelector.image!)!
                     {
                         let profilePictureStorageRef = self.storageRef.child("userProfiles/\((user?.uid)!)/profilePic")
@@ -322,6 +329,9 @@ class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UIN
                     self.signUpConfirmationLabel.text = "\(error?.localizedDescription) Registration Failed.. Please Try Again"
                 }
             })
+            
+            let userPreferences:[String:Any] = ["gender":sexLabel!,"hobbies":hobby]
+            userDatabase.set(userPreferences, forKey: "userInfo")
         }
         else{
             print("Condition not matching")
@@ -442,6 +452,9 @@ class signUpViewControler:UIViewController, UIImagePickerControllerDelegate, UIN
         
         femaleRadioButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Bold", size: 16.0)
         femaleRadioButton.tintColor = UIColor.black
+        
+        otherRadioButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Bold", size: 16.0)
+        otherRadioButton.tintColor = UIColor.black
         
         //nameTextField.font = UIFont(name: "ChalkboardSE-Bold", size: 18.0)
         //nameTextField.textColor = UIColor.white

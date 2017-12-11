@@ -18,8 +18,21 @@ class galleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     var myCollectionView: UICollectionView!
     var imageArray=[UIImage]()
+    let userDatabase:UserDefaults = UserDefaults.standard
     
-    override func viewDidLoad() { 
+    override func viewDidLoad() {
+        
+        var gender:String = ""
+        
+        if let userInfo = userDatabase.dictionary(forKey: "userInfo") {
+            print("UserInfo = \(userInfo)")
+            gender = (userInfo["gender"] as! String).lowercased()
+            print("Gender = \(gender)")
+        }
+        
+        
+        //self.view = GradientSelector().setGradient(view: self.view,type: gender)
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -31,10 +44,24 @@ class galleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         myCollectionView.delegate=self
         myCollectionView.dataSource=self
         myCollectionView.register(PhotoItemCell.self, forCellWithReuseIdentifier: "Cell")
-        myCollectionView.backgroundColor=UIColor.white
+        myCollectionView.backgroundColor=AppDelegate.textfieldColor
+        
         self.view.addSubview(myCollectionView)
         
         myCollectionView.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.RawValue(UInt8(UIViewAutoresizing.flexibleWidth.rawValue) | UInt8(UIViewAutoresizing.flexibleHeight.rawValue)))
+        
+        grabPhotos()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        var gender:String = ""
+        
+        if let userInfo = self.userDatabase.dictionary(forKey: "userInfo") {
+            print("UserInfo = \(userInfo)")
+            gender = (userInfo["gender"] as! String).lowercased()
+            print("Gender = \(gender)")
+        }
+        //self.myCollectionView = GradientSelector().setGradientCollectionView(view: self.myCollectionView,type: gender)
         
         grabPhotos()
     }
@@ -108,6 +135,9 @@ class galleryViewController: UIViewController, UICollectionViewDelegate, UIColle
             
             // Fetching the Image URLs from the Firebae Database
             ref.child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                
+                
                 // Get user value
                 let value = snapshot.value as? NSDictionary
                 let imageurl = value?["profilePicture"] as? String ?? ""
@@ -165,6 +195,7 @@ class galleryViewController: UIViewController, UICollectionViewDelegate, UIColle
                 DispatchQueue.main.async {
                     print("This is run on the main queue, after the previous code in outer block")
                     self.myCollectionView.reloadData()
+                    
                 }
             }) { (error) in
                 print("ERROR ---")

@@ -44,6 +44,7 @@ class MusicViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var playbackSlider: UISlider!
     
+    @IBOutlet var bottomView: UIView!
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -91,9 +92,11 @@ class MusicViewController: UIViewController, UITableViewDelegate, UITableViewDat
             //print("Cell Num = \(cellNum)")
             music.textLabel?.text = AppDelegate.musicList[cellNum].components(separatedBy: "!#@#!")[0]
             music.textLabel?.font = music.textLabel?.font.withSize(25.0)
+            music.textLabel?.textColor = AppDelegate.labelTextColor
             music.detailTextLabel?.text = AppDelegate.musicList[cellNum].components(separatedBy: "!#@#!")[2]
             music.detailTextLabel?.font = music.detailTextLabel?.font.withSize(10.0)
             music.detailTextLabel?.font = UIFont.init(name: "Avenir Next", size: 15.0)
+            music.detailTextLabel?.textColor = AppDelegate.textfieldTextColor
             if(cellNum == AppDelegate.currentIndex) {
                 music.imageView?.image = UIImage(named: "active")
                 //music.imageView?.
@@ -102,7 +105,16 @@ class MusicViewController: UIViewController, UITableViewDelegate, UITableViewDat
             } else {
                 //music.accessoryView?.isHidden = true
             }
+            /*let userDatabase:UserDefaults = UserDefaults.standard
+            var gender:String = ""
             
+            if let userInfo = userDatabase.dictionary(forKey: "userInfo") {
+                print("UserInfo = \(userInfo)")
+                gender = (userInfo["gender"] as! String).lowercased()
+                print("Gender = \(gender)")
+            }*/
+            //music.backgroundView = GradientSelector().setGradient(view: music.backgroundView!,type: gender)
+            music.backgroundColor = AppDelegate.textfieldColor
         }
         return music
     }
@@ -111,6 +123,8 @@ class MusicViewController: UIViewController, UITableViewDelegate, UITableViewDat
         print("View Did Load")
         ref = Database.database().reference()
         let tableRef = ref.child("music")
+        
+        
         
         if(!AppDelegate.musicList.isEmpty && !AppDelegate.allList.isEmpty && !AppDelegate.relaxList.isEmpty && !AppDelegate.popList.isEmpty && !AppDelegate.metalList.isEmpty) {
             
@@ -161,6 +175,7 @@ class MusicViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 //print("Final Result = \(self.musicList)")
                 
                 print("Before Reload")
+                self.playlist.backgroundColor = AppDelegate.labelColor
                 self.playlist.reloadData()
             })
         }
@@ -173,6 +188,25 @@ class MusicViewController: UIViewController, UITableViewDelegate, UITableViewDat
         metalMusicButton.layer.borderColor = UIColor.black.cgColor
         popMusicButton.layer.borderWidth = 2.0
         popMusicButton.layer.borderColor = UIColor.black.cgColor
+        
+        allMusicButton.backgroundColor = AppDelegate.buttonColor
+        allMusicButton.setTitleColor(AppDelegate.buttonTextColor, for: .normal)
+        popMusicButton.backgroundColor = AppDelegate.buttonColor
+        popMusicButton.setTitleColor(AppDelegate.buttonTextColor, for: .normal)
+        metalMusicButton.backgroundColor = AppDelegate.buttonColor
+        metalMusicButton.setTitleColor(AppDelegate.buttonTextColor, for: .normal)
+        relaxMusicButton.backgroundColor = AppDelegate.buttonColor
+        relaxMusicButton.setTitleColor(AppDelegate.buttonTextColor, for: .normal)
+        
+        playbackSlider.minimumTrackTintColor = AppDelegate.buttonTextColor
+        playbackSlider.maximumTrackTintColor = AppDelegate.textfieldTextColor
+        playbackSlider.thumbTintColor = UIColor.blue
+        
+        songCurrentTime.textColor = AppDelegate.buttonTextColor
+        songEndTime.textColor = AppDelegate.buttonTextColor
+        currentSongTitle.textColor = AppDelegate.buttonTextColor
+        
+        bottomView.backgroundColor = AppDelegate.buttonColor
     }
     
     override func viewDidAppear(_ animated: Bool) {

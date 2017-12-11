@@ -34,20 +34,6 @@
 		5DCF4BEF1FCDF7E300526829 /* ImagePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF4BEE1FCDF7E300526829 /* ImagePreviewVC.swift */; };
 		5DCF4BF11FCDF88400526829 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF4BF01FCDF88400526829 /* PostTableViewCell.swift */; };
 		5DEC92FE1FB25A7200F694A8 /* EditUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC92FD1FB25A7200F694A8 /* EditUserProfile.swift */; };
-		5DF5CA461FDD2DAE00501442 /* fireworks.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5DF5CA351FDD2DAC00501442 /* fireworks.sks */; };
-		5DF5CA471FDD2DAE00501442 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF5CA361FDD2DAC00501442 /* GameOverScene.swift */; };
-		5DF5CA481FDD2DAE00501442 /* GameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF5CA371FDD2DAC00501442 /* GameHandler.swift */; };
-		5DF5CA491FDD2DAE00501442 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5DF5CA381FDD2DAD00501442 /* Actions.sks */; };
-		5DF5CA4A1FDD2DAE00501442 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF5CA391FDD2DAD00501442 /* GameScene.swift */; };
-		5DF5CA4B1FDD2DAE00501442 /* StartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5DF5CA3A1FDD2DAD00501442 /* StartScene.sks */; };
-		5DF5CA4C1FDD2DAE00501442 /* pulse.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5DF5CA3B1FDD2DAD00501442 /* pulse.sks */; };
-		5DF5CA4D1FDD2DAE00501442 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF5CA3C1FDD2DAD00501442 /* GameViewController.swift */; };
-		5DF5CA4E1FDD2DAE00501442 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5DF5CA3D1FDD2DAD00501442 /* GameOverScene.sks */; };
-		5DF5CA501FDD2DAE00501442 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF5CA3F1FDD2DAE00501442 /* StartScene.swift */; };
-		5DF5CA521FDD2DAE00501442 /* ScrollingBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF5CA411FDD2DAE00501442 /* ScrollingBackground.swift */; };
-		5DF5CA531FDD2DAE00501442 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5DF5CA421FDD2DAE00501442 /* GameScene.sks */; };
-		5DF5CA551FDD2DE100501442 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 5DF5CA541FDD2DE100501442 /* Sounds */; };
-		CCE2CD251FD3DFFA00AC7659 /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE2CD241FD3DFFA00AC7659 /* MusicPlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,7 +80,6 @@
 		5DF5CA421FDD2DAE00501442 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		5DF5CA541FDD2DE100501442 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
 		6127EB54E18F05572C6837B6 /* Pods-smile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smile.release.xcconfig"; path = "Pods/Target Support Files/Pods-smile/Pods-smile.release.xcconfig"; sourceTree = "<group>"; };
-		CCE2CD241FD3DFFA00AC7659 /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
 		D3F0DD8D80CA39B22D7540C4 /* Pods-smile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smile/Pods-smile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,7 +180,6 @@
 				5D0BB7CD1FCB7C3D00565850 /* EditContactViewController.swift */,
 				5DCF4BEE1FCDF7E300526829 /* ImagePreviewVC.swift */,
 				5DCF4BF01FCDF88400526829 /* PostTableViewCell.swift */,
-				CCE2CD241FD3DFFA00AC7659 /* MusicPlayerViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -389,7 +373,6 @@
 				5DCF4BF11FCDF88400526829 /* PostTableViewCell.swift in Sources */,
 				5D3BECD01FAD3C75003DAE9C /* SignUpViewControler.swift in Sources */,
 				5D46E6121F9FED2D00CC3613 /* AppDelegate.swift in Sources */,
-				CCE2CD251FD3DFFA00AC7659 /* MusicPlayerViewController.swift in Sources */,
 				5DCBD3D31FB4F718000F08C1 /* UserProfileTableViewController.swift in Sources */,
 				5D8F8A941FB91A85002EB7B7 /* ComponentFormatter.swift in Sources */,
 				5D0BB7CE1FCB7C3D00565850 /* EditContactViewController.swift in Sources */,
@@ -537,7 +520,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L454ZMME52;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = smile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nbroadcast.calculator.smile2.0;
@@ -555,7 +538,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L454ZMME52;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = smile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nbroadcast.calculator.smile2.0;

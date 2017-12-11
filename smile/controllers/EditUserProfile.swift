@@ -53,6 +53,10 @@ class editUserProfile:UIViewController{
     @IBOutlet weak var hobbyLabel2: UILabel!
     @IBOutlet weak var hobbyLabel3: UILabel!
     @IBOutlet weak var hobbyLabel4: UILabel!
+    @IBOutlet weak var myView: UIView!
+    
+    
+    let userDatabase:UserDefaults = UserDefaults.standard
     
     
     
@@ -271,6 +275,13 @@ class editUserProfile:UIViewController{
         ref.child("users").child((user)!).child("hobby").setValue(hobby)
         ref.child("users").child((user)!).child("name").setValue(name)
         
+        let userPreferences:[String:Any] = ["gender":sexLabel!,"hobbies":hobby]
+        userDatabase.set(userPreferences, forKey: "userInfo")
+        
+        AppDelegate.isProfileEdited = true
+        
+        GradientSelector().setColorScheme(gender : sexLabel!.lowercased())
+        
         let alert = UIAlertController(title: "Success", message: "Your Profile is successfully updated", preferredStyle: .alert)
         let okaction = UIAlertAction(title: "OK", style: .default, handler: self.goToHomePage) 
         alert.addAction(okaction)
@@ -289,6 +300,18 @@ class editUserProfile:UIViewController{
     }
     
     override func viewDidLoad() {
+        
+        var gender:String = ""
+        self.title = "Edit Profile"
+        
+        if let userInfo = userDatabase.dictionary(forKey: "userInfo") {
+            print("UserInfo = \(userInfo)")
+            gender = (userInfo["gender"] as! String).lowercased()
+            print("Gender = \(gender)")
+        }
+        
+        self.myView = GradientSelector().setGradient(view: self.myView,type: gender)
+        
         // Assigning Hobby Labels
         hobbyLabel1.text = signUpViewControler().hobbyLabels[0]
         hobbyLabel2.text = signUpViewControler().hobbyLabels[1]
@@ -367,13 +390,16 @@ class editUserProfile:UIViewController{
             
             
             // Printing the URL of the stored images in the console
-            let images:[String] = (value?["images"] as? [String])!
-            let numberofimages = images.count
-            i = 0
-            while(i<numberofimages){
-                print("URR for images are \(images[i])")
-                i += 1
+            if let images:[String] = (value?["images"] as? [String]){
+                let numberofimages = images.count
+                i = 0
+                while(i<numberofimages){
+                    print("URR for images are \(images[i])")
+                    i += 1
+                }
             }
+            //let images:[String] = (value?["images"] as? [String])!
+            
             
             
             // Setting the Profile Picture

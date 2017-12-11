@@ -14,12 +14,14 @@ class GameOverScene : SKScene {
     var bestScoreLabel:SKLabelNode?
     
     var playButton:SKSpriteNode?
+    var menuButton:SKSpriteNode?
     
     var backgroundMusic: SKAudioNode!
     
     override func didMove(to view: SKView) {
         lastScoreLabel = self.childNode(withName: "lastScoreLabel") as? SKLabelNode
         bestScoreLabel = self.childNode(withName: "bestScoreLabel") as? SKLabelNode
+        menuButton = self.childNode(withName: "menuButton") as? SKSpriteNode
         
         lastScoreLabel?.text = "\(GameHandler.sharedInstance.score)"
         bestScoreLabel?.text = "\(GameHandler.sharedInstance.highScore)"
@@ -47,6 +49,8 @@ class GameOverScene : SKScene {
                     self.view?.presentScene(gameScene, transition: transition)
                 }
             
+            } else if (node == menuButton) {
+                
             }
         }
     }

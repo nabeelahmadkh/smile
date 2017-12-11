@@ -40,6 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static var tableCellTextColor:UIColor!
     static var textfieldTextColor:UIColor!
     
+    //Game Started
+    static var gameStarted:Bool = false
+    
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return self.orientationLock
     }

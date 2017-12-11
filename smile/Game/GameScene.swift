@@ -20,13 +20,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var player:SKSpriteNode?
     var target:SKSpriteNode?
     
+    weak var gameViewController : GameViewController!
+    
     var currentScore:Int = 0{
         didSet {
             self.scoreLabel?.text = "SCORE: \(self.currentScore)"
             GameHandler.sharedInstance.score = currentScore
         }
     }
-    var remainingTime:TimeInterval = 60 {
+    var remainingTime:TimeInterval = 30 {
         didSet {
             self.timeLabel?.text = "TIME: \(Int(self.remainingTime))"
         }
@@ -328,10 +330,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     moveToNextTrack()
                 }
             }else if node?.name == "menuButton"{
-                
+                self.gameViewController.viewDidLoad()
             }
             else if node?.name == "quit"{
-                
+                print("QUIT HAS BEEN CALLED")
+                print("Game Scene, Controller = \(self.gameViewController)")
+                //SKAction.run {
+                    self.gameViewController.viewDidLoad()
+                //}
             }
             else if node?.name == "up" {
                 moveVertically(up: true)

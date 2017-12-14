@@ -12,41 +12,54 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
-    
-    
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-        func buttonClick(sender: UIButton) {
-            
-            func showAlertButtonTapped(_ sender: UIButton) {
-                
-                // create the alert
-                let alert = UIAlertController(title: "My Title", message: "This is my message.", preferredStyle: UIAlertControllerStyle.alert)
-                
-                // add an action (button)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                
-                // show the alert
-                self.present(alert, animated: true, completion: nil)
+        if(AppDelegate.gameStarted) {
+            (self.view as! SKView).presentScene(nil)
+            AppDelegate.gameStarted = false
+            DispatchQueue.main.async(){
+                self.performSegue(withIdentifier: "gameToDash", sender: self)
             }
-        }
-        
-        if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "StartScene") {
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
+        } else {
+            
+            func buttonClick(sender: UIButton) {
                 
-                // Present the scene
-                view.presentScene(scene)
+                func showAlertButtonTapped(_ sender: UIButton) {
+                    
+                    // create the alert
+                    let alert = UIAlertController(title: "My Title", message: "This is my message.", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    // add an action (button)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    
+                    // show the alert
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
             
-            view.ignoresSiblingOrder = true
+            if let view = self.view as! SKView? {
+                // Load the SKScene from 'GameScene.sks'
+                if let scene = StartScene(fileNamed: "StartScene") {
+                    // Set the scale mode to scale to fit the window
+                    scene.scaleMode = .aspectFill
+                    
+                    scene.gameViewController = self
+                    
+                    AppDelegate.gameStarted = true
+                    
+                    // Present the scene
+                    view.presentScene(scene)
+                }
+                
+                view.ignoresSiblingOrder = true
+                
+                view.showsFPS = true
+                view.showsNodeCount = true
+            }
             
-            view.showsFPS = true
-            view.showsNodeCount = true
         }
+        
+        
     }
     
     override var shouldAutorotate: Bool {

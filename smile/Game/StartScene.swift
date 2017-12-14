@@ -11,17 +11,17 @@ import SpriteKit
 class StartScene: SKScene {
     
     var playButton:SKSpriteNode?
-    var helpButton:SKSpriteNode?
+    //var menuButton:SKSpriteNode?
     
-    var gameScene:SKScene!
+    //var gameScene:SKScene!
     var backgroundMusic: SKAudioNode!
     
     var scrollingBG:ScrollingBackground?
-    
+    weak var gameViewController : GameViewController!
     
     override func didMove(to view: SKView) {
         playButton = self.childNode(withName: "startButton") as? SKSpriteNode
-        helpButton = self.childNode(withName: "help") as? SKSpriteNode
+        //menuButton = self.childNode(withName: "menuButton") as? SKSpriteNode
         
         scrollingBG = ScrollingBackground.scrollingNodeWithImage(imageName: "loopBG", containerWidth: self.size.width)
         
@@ -47,15 +47,14 @@ class StartScene: SKScene {
             
             if node == playButton {
                 let transition = SKTransition.fade(withDuration: 1)
-                gameScene = SKScene(fileNamed: "GameScene")
-                gameScene.scaleMode = .aspectFit
-                self.view?.presentScene(gameScene, transition: transition)
-
-                
-            }
-            if node == helpButton {
-                
-                
+                    if let scene = GameScene(fileNamed: "GameScene") {
+                    //gameScene = GameScene(fileNamed: "GameScene")
+                    print("Start Scene, Controller = \(self.gameViewController)")
+                    print("Start Scene, Controller = \(self.gameViewController as! GameViewController)")
+                    scene.gameViewController = self.gameViewController as! GameViewController
+                    scene.scaleMode = .aspectFit
+                    self.view?.presentScene(scene, transition: transition)
+                }
             }
         }
     }

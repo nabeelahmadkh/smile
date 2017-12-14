@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -319,7 +319,7 @@
                     <navigationItem key="navigationItem" title="Smile" leftItemsSupplementBackButton="YES" id="UTF-Za-TzH">
                         <barButtonItem key="leftBarButtonItem" title="☰" id="CWb-tR-lXw">
                             <connections>
-                                <segue destination="gIG-vc-gOb" kind="push" id="Dwa-YV-mUf"/>
+                                <segue destination="gIG-vc-gOb" kind="show" identifier="dashToProfile2" id="Dwa-YV-mUf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -331,7 +331,7 @@
                         <segue destination="Bus-0g-t5g" kind="show" identifier="dashToPhone" id="uff-ck-Agj"/>
                         <segue destination="Xna-s6-IFl" kind="show" identifier="dashToText" id="TKA-cF-DU6"/>
                         <segue destination="Y4N-Xr-Ckj" kind="show" identifier="dashToGallery" id="iFe-d7-dEO"/>
-                        <segue destination="gIG-vc-gOb" kind="show" identifier="dashToAccount" id="qGR-SE-J5q"/>
+                        <segue destination="gIG-vc-gOb" kind="show" identifier="dashToAccount" id="eBD-KI-ysE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSl-p0-695" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -916,7 +916,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="y17-B7-Lyd" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
+                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="y17-B7-Lyd" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
                                         <rect key="frame" x="46" y="149.5" width="323" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -927,7 +927,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-Dh-Okq" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-Dh-Okq" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
                                         <rect key="frame" x="46" y="211" width="323" height="45.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -938,7 +938,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="kzj-D7-ppc" id="VBQ-63-77d"/>
+                                            <outlet property="delegate" destination="kzj-D7-ppc" id="0Le-lS-44J"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="qmA-lX-IzC" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
@@ -952,7 +952,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="kzj-D7-ppc" id="Day-nx-WZX"/>
+                                            <outlet property="delegate" destination="kzj-D7-ppc" id="dqe-kL-WfV"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="5P1-Kr-1ag" customClass="LeftPaddedTextField2" customModule="smile" customModuleProvider="target">
@@ -966,7 +966,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="kzj-D7-ppc" id="6Qi-cg-i8I"/>
+                                            <outlet property="delegate" destination="kzj-D7-ppc" id="rZl-MI-Xva"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nl-8p-P3E">
@@ -1185,7 +1185,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Fa-8m-1su">
                                 <rect key="frame" x="145" y="247" width="122" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <state key="normal" title="Click Here to talk."/>
                                 <connections>
                                     <action selector="callHelpline2:" destination="Bus-0g-t5g" eventType="touchUpInside" id="JQX-e3-WPs"/>
@@ -1197,7 +1197,9 @@
                     </view>
                     <connections>
                         <outlet property="callButton" destination="61B-17-4wF" id="1kr-J0-4Uo"/>
+                        <outlet property="callButton2" destination="6Fa-8m-1su" id="Ucr-A8-GXd"/>
                         <outlet property="textLabel" destination="fAU-oc-PSN" id="LAn-2R-nDS"/>
+                        <outlet property="textLabel2" destination="Aej-k0-EwX" id="d1o-U1-qy1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fta-Bp-S10" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1471,7 +1473,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ajb-hz-dbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3642.0289855072465" y="879.61956521739137"/>
+            <point key="canvasLocation" x="3693" y="880"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="m4c-cL-unh">
@@ -1483,10 +1485,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="z0Q-bV-meH"/>
                     </view>
+                    <connections>
+                        <segue destination="B9v-qD-m2t" kind="show" identifier="gameToDash" id="wXu-eM-vRU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIz-O4-cuX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4724" y="905"/>
+            <point key="canvasLocation" x="4429" y="882"/>
         </scene>
         <!--Sign Up View Controler-->
         <scene sceneID="lXv-8y-gb2">
@@ -2571,10 +2576,9 @@ lHmUfJSOlJGUlgAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAAJSYA
         <image name="unchecked" width="96" height="96"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iFe-d7-dEO"/>
-        <segue reference="wIk-Qq-LlA"/>
+        <segue reference="wXu-eM-vRU"/>
         <segue reference="iie-C3-DwQ"/>
         <segue reference="qhw-Ce-viY"/>
-        <segue reference="qGR-SE-J5q"/>
+        <segue reference="eBD-KI-ysE"/>
     </inferredMetricsTieBreakers>
 </document>

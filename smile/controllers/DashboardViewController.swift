@@ -110,8 +110,7 @@ class DashboardViewController: UIViewController {
             }
             
             //dashboardThumbnail.backgroundColor = UIColor.black
-            //dashboardThumbnail.backgroundColor = AppDelegate.labelColor
-            dashboardThumbnail.backgroundColor = AppDelegate.textfieldColor
+            dashboardThumbnail.backgroundColor = AppDelegate.labelColor
             /*if(gender == "male") {
                 dashboardThumbnail.backgroundColor = UIColor(red: 130/256, green: 155/256, blue: 214/256, alpha: 1.0)
             } else if (gender == "female") {
@@ -249,11 +248,6 @@ class DashboardViewController: UIViewController {
             DispatchQueue.main.async(){
                 self.performSegue(withIdentifier: "dashToPhone", sender: self)
             }
-        }else if(sender.title(for: UIControlState.selected)! == "Account"){
-            print("Perform segue called")
-            DispatchQueue.main.async(){
-                self.performSegue(withIdentifier: "dashToAccount", sender: self)
-            }
         }
         else if(sender.title(for: UIControlState.selected)! == "Game"){
             print("Perform segue called")
@@ -273,6 +267,16 @@ class DashboardViewController: UIViewController {
             print("Perform segue called")
             DispatchQueue.main.async(){
                 self.performSegue(withIdentifier: "dashToText", sender: self)
+            }
+        } else if(sender.title(for: UIControlState.selected)! == "Account"){
+            print("Perform segue called")
+            DispatchQueue.main.async(){
+                self.performSegue(withIdentifier: "dashToAccount", sender: self)
+            }
+        }else if(sender.title(for: UIControlState.selected)! == "Account"){
+            print("Perform segue called")
+            DispatchQueue.main.async(){
+                self.performSegue(withIdentifier: "dashToProfile2", sender: self)
             }
         }
         else {

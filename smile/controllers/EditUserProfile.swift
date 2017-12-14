@@ -17,7 +17,7 @@ import Photos
 import DLRadioButton
 
 
-class editUserProfile:UIViewController, UITextFieldDelegate{
+class editUserProfile:UIViewController{
     
     var SelectedAssets = [PHAsset]()
     var PhotoArray = [UIImage]()

@@ -25,6 +25,7 @@ class uploadImagesViewController: UIViewController{
     var storageRef = Storage.storage().reference()
     @IBOutlet weak var imgView: UIImageView!
     var numberOfImages:Int = 0
+    @IBOutlet weak var activityIcon: UIActivityIndicatorView!
     
     
     // Selecting Multiple Images from Gallery
@@ -32,7 +33,7 @@ class uploadImagesViewController: UIViewController{
         
         // create an instance of Custom class for picking image.
         let vc = BSImagePickerViewController()
-        
+        activityIcon.startAnimating()
         //display picture gallery
         self.bs_presentImagePickerController(vc, animated: true,
                                              select: { (asset: PHAsset) -> Void in
@@ -52,6 +53,7 @@ class uploadImagesViewController: UIViewController{
             self.convertAssetToImages()
             
         }, completion: nil)
+        
         
     }
     
@@ -88,6 +90,8 @@ class uploadImagesViewController: UIViewController{
             self.imgView.animationImages = self.PhotoArray
             self.imgView.animationDuration = 3.0
             self.imgView.startAnimating()
+            activityIcon.stopAnimating()
+            activityIcon.hidesWhenStopped = true
             
         }
         
@@ -150,6 +154,8 @@ class uploadImagesViewController: UIViewController{
     }
     
     override func viewDidLoad() {
+        activityIcon.stopAnimating()
+        activityIcon.hidesWhenStopped = true
         let user = Auth.auth().currentUser?.uid
         print("The User SIgned in is \(user))")
         

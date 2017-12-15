@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let session = AVAudioSession.sharedInstance()
         do {
             // Configure the audio session for movie playback
-            try session.setCategory(AVAudioSessionCategoryPlayback,                                    mode: AVAudioSessionModeMoviePlayback,options:[.allowBluetooth,.allowAirPlay,.mixWithOthers])
+            try session.setCategory(AVAudioSessionCategoryPlayback, mode: AVAudioSessionModeMoviePlayback,options:[.allowBluetooth,.allowAirPlay,.mixWithOthers])
         } catch let error as NSError {
             print("Failed to set the audio session category and mode: \(error.localizedDescription)")
         }

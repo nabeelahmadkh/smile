@@ -11,7 +11,7 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
-class EditTextViewController: UIViewController {
+class EditTextViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var contactName1: UITextField!
     @IBOutlet weak var contactMobile1: UITextField!
     @IBOutlet weak var contactName2: UITextField!
@@ -41,6 +41,20 @@ class EditTextViewController: UIViewController {
     let uid = Auth.auth().currentUser?.uid
     var numberOfEmergencyContacts = 0
     let userDatabase:UserDefaults = UserDefaults.standard
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        let tag = textField.tag + 1 as Int
+        let nextField: UIResponder? = textField.superview?.viewWithTag(tag)
+        
+        if let field: UIResponder = nextField{
+            field.becomeFirstResponder()
+        }
+        else{
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+    
     
     override func viewDidLoad() {
         

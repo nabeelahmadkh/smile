@@ -11,7 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import MessageUI
 
-class TextViewController: UIViewController, MFMessageComposeViewControllerDelegate  {
+class TextViewController: UIViewController, MFMessageComposeViewControllerDelegate,UITextFieldDelegate  {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var smsText: UITextView!
     @IBOutlet weak var notice: UILabel!
@@ -25,6 +25,19 @@ class TextViewController: UIViewController, MFMessageComposeViewControllerDelega
     //var contacts:[String: String] = ["Abhijeet Kharkar":"319-512-8180"]
     var contacts:[String: String] = [:]
     let userDatabase:UserDefaults = UserDefaults.standard
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        let tag = textField.tag + 1 as Int
+        let nextField: UIResponder? = textField.superview?.viewWithTag(tag)
+        
+        if let field: UIResponder = nextField{
+            field.becomeFirstResponder()
+        }
+        else{
+            textField.resignFirstResponder()
+        }
+        return false
+    }
     
     override func viewDidLoad() {
         

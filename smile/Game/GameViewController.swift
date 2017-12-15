@@ -12,6 +12,16 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
+    override func viewWillAppear(_ animated: Bool) {
+        //making display locked in horizontal
+         AppUtility.lockOrientation(.landscape)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // again turning back the controller to portrait
+        AppUtility.lockOrientation(.all)
+    }
+    
     override func viewDidLoad() {
         
         if(AppDelegate.gameStarted) {
